@@ -1,0 +1,61 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 33,
+      "symbol": "UIColor.HSBColor.hue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 34,
+      "symbol": "UIColor.HSBColor.saturation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 35,
+      "symbol": "UIColor.HSBColor.brightness",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 36,
+      "symbol": "UIColor.HSBColor.alpha",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 50,
+      "symbol": "UIColor.RGBColor.red",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 51,
+      "symbol": "UIColor.RGBColor.green",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 52,
+      "symbol": "UIColor.RGBColor.blue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAColour.swift",
+      "line": 53,
+      "symbol": "UIColor.RGBColor.alpha",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/qsysmine/Documents/ubsa/code/UBSA"
+}

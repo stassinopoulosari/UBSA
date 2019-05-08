@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSA/ViewControllers/UBSANavigationController.swift",
+      "line": 62,
+      "symbol": "UBSANavigationController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/qsysmine/Documents/ubsa/code/UBSA"
+}

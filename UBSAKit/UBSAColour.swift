@@ -29,6 +29,7 @@ extension UIColor {
         public var brightness: CGFloat
         public var alpha: CGFloat
         
+        ///Allows conversion of a hsbColour to a UIColor
         public var uiColor: UIColor {
             get {
                 return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
@@ -45,6 +46,7 @@ extension UIColor {
         public var blue: CGFloat
         public var alpha: CGFloat
         
+        ///Allows conversion of an RGBColour to a UIColor
         public var uiColor: UIColor {
             get {
                 return UIColor(red: red, green: green, blue: blue, alpha: alpha)
@@ -53,8 +55,21 @@ extension UIColor {
     }
 }
 
+/**
+ # UBSAColour
+ 
+ Ari Stassinopoulos
+ 
+ Colour conversion utilities
+ */
 public class UBSAColour {
     
+    /**
+     Checks if background colour is more black than white and returns a commensurate text colour
+     
+     - Parameter forColour: Background colour to process
+     - Returns: Black or white depending on forColour brightness
+    */
     public static func getTextColour(forColour colour: UIColor) -> UIColor {
         let brightness = colour.hsbColor.brightness;
         if(brightness <= 0.5) {
@@ -63,7 +78,5 @@ public class UBSAColour {
             return UIColor.black;
         }
     }
-    public static func getTransparentColour(forColour colour: UIColor) -> UIColor {
-        return UIColor(hue: colour.hsbColor.hue, saturation: colour.hsbColor.saturation, brightness: colour.hsbColor.brightness, alpha: 0.0);
-    }
+    
 }

@@ -11,18 +11,24 @@ import UBSAKit
 
 public class UBSAAppConfig {
     
-    private init() {}
+    ///Initializer is private to prevent initialisation (all methods are static)
+    private final init() {}
     
+    ///UBSA context
     public static var ubsaContext: UBSAContext {
         get {
             return UBSAContext(self.ubsaConfig);
         }
     }
+    
+    ///UBSA context
     public static var c: UBSAContext {
         get {
             return ubsaContext;
         }
     }
+    
+    ///UBSA config: Allows configuration of app-level data
     public static var ubsaConfig: UBSAConfig {
         get {
             let SCHOOL_NAME: String = "Sample School";

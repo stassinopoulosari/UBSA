@@ -10,6 +10,7 @@ import UIKit
 
 class UBSAMainScreenLabel: UILabel {
 
+    ///Frame initializer: needed for custom colour
     override init(frame: CGRect) {
         super.init(frame: frame);
         textColor = UBSAAppConfig.c.textColour;
@@ -17,6 +18,7 @@ class UBSAMainScreenLabel: UILabel {
 
     }
     
+    ///Coder initializer: needed for custom colour
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         textColor = UBSAAppConfig.c.textColour;

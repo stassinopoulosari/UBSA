@@ -11,17 +11,20 @@ import UBSAKit
 
 class UBSANavigationController: UINavigationController {
 
+    ///View did load: changes navigation bar background colour
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationBar.backgroundColor = UBSAAppConfig.c.colour;
     }
     
+    ///Sets preferred status bar style to light or dark depending on background
     override var preferredStatusBarStyle: UIStatusBarStyle {
         get {
             return UBSAAppConfig.c.textColour == .white ? .lightContent : .default;
         }
     }
     
+    ///ViewDidAppear: set background, tint colours
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         
@@ -30,24 +33,22 @@ class UBSANavigationController: UINavigationController {
             self.navigationBar.tintColor = UBSAAppConfig.c.textColour;
             self.navigationBar.barTintColor = UBSAAppConfig.c.colour;
         }
-        
-        
-
     }
     
+    ///Does the navigation bar have a background (is it invisible)?
     public var hasBackground: Bool {
         set {
-            if(!newValue) {
-                self.navigationBar.shadowImage = UIImage();
-                self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-                self.navigationBar.isTranslucent = true;
+            if(!newValue) { // If false
+                self.navigationBar.shadowImage = UIImage(); // Disappear shadow
+                self.navigationBar.setBackgroundImage(UIImage(), for: .default); // Disappear background
+                self.navigationBar.isTranslucent = true; // Set translucent
             } else {
-                self.navigationBar.shadowImage = nil;
-                self.navigationBar.setBackgroundImage(nil, for: .default)
-                self.navigationBar.isTranslucent = false;
+                self.navigationBar.shadowImage = nil; // Appear shadow
+                self.navigationBar.setBackgroundImage(nil, for: .default) // Appear background
+                self.navigationBar.isTranslucent = false; // Bar no longer translucent
             }
         } get {
-            return self.navigationBar.shadowImage != nil;
+            return self.navigationBar.shadowImage != nil; // I guess I need a getter 🤷‍♂️
         }
     }
     

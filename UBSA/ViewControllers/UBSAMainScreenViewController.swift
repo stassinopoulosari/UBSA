@@ -10,15 +10,15 @@ import UIKit
 
 class UBSAMainScreenViewController: UIViewController {
 
+    ///ViewDidLoad overrider, sets navigation controller colour
     override func viewDidLoad() {
         super.viewDidLoad();
         view.backgroundColor = UBSAAppConfig.c.colour;
-        if let navigationController = self.navigationController {
-            if let ubsaNavigationController = navigationController as? UBSANavigationController{
-                ubsaNavigationController.hasBackground = false;
+        if let navigationController = self.navigationController { // Check if navi controller exists
+            if let ubsaNavigationController = navigationController as? UBSANavigationController{ // Make sure navi controller is a custom one
+                ubsaNavigationController.hasBackground = false; // Disappear background of navi controller.
             }
         }
-        // Do any additional setup after loading the view.
     }
     
 

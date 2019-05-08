@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+/**
+ UBSA Context
+ 
+ Similar to Android Context, allows for database access and other shared components
+*/
 public class UBSAContext {
     
     ///Stores the configuration provided in init

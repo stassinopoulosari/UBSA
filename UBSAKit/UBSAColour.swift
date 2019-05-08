@@ -1,3 +1,9 @@
+/**
+ 
+ UIColor extension
+ 
+ - Credit: https://stackoverflow.com/a/49655560
+ */
 extension UIColor {
     
     /**
@@ -5,7 +11,14 @@ extension UIColor {
      */
     public var rgbColor: RGBColor {
         get {
-            var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+            ///Red
+            var red: CGFloat = 0,
+            ///Green
+            green: CGFloat = 0,
+            ///Blue
+            blue: CGFloat = 0,
+            ///Alpha
+            alpha: CGFloat = 0;
             self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
             return RGBColor(red: red, green: green, blue: blue, alpha: alpha)
         }
@@ -15,18 +28,30 @@ extension UIColor {
      Decomposes UIColor to its HSBA components
      */
     public var hsbColor: HSBColor {
-        var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
-        return HSBColor(hue: h, saturation: s, brightness: b, alpha: a)
+        ///Hue
+        var h: CGFloat = 0,
+        ///Saturation
+        s: CGFloat = 0,
+        ///Brightness
+        b: CGFloat = 0,
+        ///Alpha
+        a: CGFloat = 0;
+        
+        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a);
+        return HSBColor(hue: h, saturation: s, brightness: b, alpha: a);
     }
     
     /**
      Holds the CGFloat values of HSBA components of a color
      */
     public struct HSBColor {
+        ///Hue
         public var hue: CGFloat
+        ///Saturation
         public var saturation: CGFloat
+        ///Brightness
         public var brightness: CGFloat
+        ///Alpha
         public var alpha: CGFloat
         
         ///Allows conversion of a hsbColour to a UIColor
@@ -41,9 +66,13 @@ extension UIColor {
      Holds the CGFloat values of RGBA components of a color
      */
     public struct RGBColor {
+        ///Red
         public var red: CGFloat
+        ///Green
         public var green: CGFloat
+        ///Blue
         public var blue: CGFloat
+        ///Alpha
         public var alpha: CGFloat
         
         ///Allows conversion of an RGBColour to a UIColor

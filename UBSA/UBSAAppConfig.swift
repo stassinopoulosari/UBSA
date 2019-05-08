@@ -9,10 +9,13 @@
 import Foundation
 import UBSAKit
 
+/**
+ Configuration on app-level for UI and name
+ */
 public class UBSAAppConfig {
     
     ///Initializer is private to prevent initialisation (all methods are static)
-    private final init() {}
+    private init() {}
     
     ///UBSA context
     public static var ubsaContext: UBSAContext {

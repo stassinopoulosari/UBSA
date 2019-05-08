@@ -8,10 +8,13 @@
 
 import UIKit
 
-class UBSAMainScreenViewController: UIViewController {
+/**
+ Main screen of the app: the classic Bell Schedule view
+ */
+public class UBSAMainScreenViewController: UIViewController {
 
     ///ViewDidLoad overrider, sets navigation controller colour
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad();
         view.backgroundColor = UBSAAppConfig.c.colour;
         if let navigationController = self.navigationController { // Check if navi controller exists

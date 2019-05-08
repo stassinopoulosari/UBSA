@@ -9,23 +9,26 @@
 import UIKit
 import UBSAKit
 
-class UBSANavigationController: UINavigationController {
+/**
+ Navigation controller with extra UI methods
+ */
+public class UBSANavigationController: UINavigationController {
 
     ///View did load: changes navigation bar background colour
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.navigationBar.backgroundColor = UBSAAppConfig.c.colour;
     }
     
     ///Sets preferred status bar style to light or dark depending on background
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override public  var preferredStatusBarStyle: UIStatusBarStyle {
         get {
             return UBSAAppConfig.c.textColour == .white ? .lightContent : .default;
         }
     }
     
     ///ViewDidAppear: set background, tint colours
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         
         UIView.animate(withDuration: 0.5) {
@@ -56,7 +59,7 @@ class UBSANavigationController: UINavigationController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }

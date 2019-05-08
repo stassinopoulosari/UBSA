@@ -8,10 +8,14 @@
 
 import UIKit
 
+/** 
+ Label which automatically changes to UBSAColour suggested colour
+ */
+
 class UBSAMainScreenLabel: UILabel {
 
     ///Frame initializer: needed for custom colour
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame);
         textColor = UBSAAppConfig.c.textColour;
         tintColor = UBSAAppConfig.c.textColour;
@@ -19,7 +23,7 @@ class UBSAMainScreenLabel: UILabel {
     }
     
     ///Coder initializer: needed for custom colour
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         textColor = UBSAAppConfig.c.textColour;
         tintColor = UBSAAppConfig.c.textColour;

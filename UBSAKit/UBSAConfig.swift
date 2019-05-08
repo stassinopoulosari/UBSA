@@ -8,6 +8,11 @@
 
 import Foundation
 
+/**
+ UBSA Configuration
+ 
+ Structure for the configuration in the app module to fit
+ */
 public struct UBSAConfig {
     ///School name for internal app data
     public var schoolName: String;

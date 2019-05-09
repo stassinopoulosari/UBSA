@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0" />
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
@@ -14,193 +15,214 @@
     <a title="UIColor Extension Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">UBSAKit Docs</a> (100% documented)</p>
+        <p>
+          <a href="../index.html">UBSAKit Docs</a>
+          <span class="no-mobile"> (100% documented)</span>
+        </p>
+    
+        <p class="header-right">
+          <a href="https://github.com/stassinopoulosari/ubsa">
+            <img src="../img/gh.png"/>
+            <span class="no-mobile">View on GitHub</span>
+          </a>
+        </p>
+    
       </div>
     </header>
-    <div class="content-wrapper">
-      <p id="breadcrumbs">
-        <a href="../index.html">UBSAKit Reference</a>
-        <img id="carat" src="../img/carat.png" />
-        UIColor Extension Reference
-      </p>
+    <div id="breadcrumbs-container">
+      <div class="content-wrapper">
+        <p id="breadcrumbs">
+          <span class="no-mobile">
+            <a href="../index.html">UBSAKit Reference</a>
+            <img id="carat" src="../img/carat.png" />
+          </span>
+          UIColor Extension Reference
+        </p>
+      </div>
     </div>
-    <div class="content-wrapper">
-      <nav class="sidebar">
-        <ul class="nav-groups">
-          <li class="nav-group-name">
-            <a href="../Classes.html">Classes</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Classes/UBSAColour.html">UBSAColour</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/UBSAContext.html">UBSAContext</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Extensions.html">Extensions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Extensions/UIColor.html">UIColor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIColor/HSBColor.html">– HSBColor</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Extensions/UIColor/RGBColor.html">– RGBColor</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Structs.html">Structures</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Structs/UBSAConfig.html">UBSAConfig</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <article class="main-content">
-        <section>
-          <section class="section">
-            <h1>UIColor</h1>
-              <div class="declaration">
-                <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">UIColor</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSSecureCoding</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
+    <div class="wrapper">
+      <div class="article-wrapper">
+        <article class="main-content">
+          <section>
+            <section class="section">
+              <h1>UIColor</h1>
+                <div class="declaration">
+                  <div class="language">
+                    <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">UIColor</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">NSSecureCoding</span><span class="p">,</span> <span class="kt">NSCopying</span></code></pre>
 
+                  </div>
                 </div>
-              </div>
-            <p>UIColor extension</p>
+              <p>UIColor extension</p>
 
 <ul>
 <li>Credit: <a href="https://stackoverflow.com/a/49655560">https://stackoverflow.com/a/49655560</a></li>
 </ul>
 
+            </section>
+            <section class="section task-group-section">
+              <div class="task-group">
+                <ul>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:So7UIColorC7UBSAKitE8rgbColorAbCE8RGBColorVvp"></a>
+                      <a name="//apple_ref/swift/Property/rgbColor" class="dashAnchor"></a>
+                      <a class="token" href="#/s:So7UIColorC7UBSAKitE8rgbColorAbCE8RGBColorVvp">rgbColor</a>
+                      </code>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>Decomposes UIColor to its RGBA components</p>
+
+                        </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rgbColor</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIColor/RGBColor.html">RGBColor</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:So7UIColorC7UBSAKitE8hsbColorAbCE8HSBColorVvp"></a>
+                      <a name="//apple_ref/swift/Property/hsbColor" class="dashAnchor"></a>
+                      <a class="token" href="#/s:So7UIColorC7UBSAKitE8hsbColorAbCE8HSBColorVvp">hsbColor</a>
+                      </code>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>Decomposes UIColor to its HSBA components</p>
+
+                        </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hsbColor</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIColor/HSBColor.html">HSBColor</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:So7UIColorC7UBSAKitE8HSBColorV"></a>
+                      <a name="//apple_ref/swift/Struct/HSBColor" class="dashAnchor"></a>
+                      <a class="token" href="#/s:So7UIColorC7UBSAKitE8HSBColorV">HSBColor</a>
+                      </code>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>Holds the CGFloat values of HSBA components of a color</p>
+
+                          <a href="../Extensions/UIColor/HSBColor.html" class="slightly-smaller">See more</a>
+                        </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HSBColor</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                  <li class="item">
+                    <div>
+                      <code>
+                      <a name="/s:So7UIColorC7UBSAKitE8RGBColorV"></a>
+                      <a name="//apple_ref/swift/Struct/RGBColor" class="dashAnchor"></a>
+                      <a class="token" href="#/s:So7UIColorC7UBSAKitE8RGBColorV">RGBColor</a>
+                      </code>
+                    </div>
+                    <div class="height-container">
+                      <div class="pointer-container"></div>
+                      <section class="section">
+                        <div class="pointer"></div>
+                        <div class="abstract">
+                          <p>Holds the CGFloat values of RGBA components of a color</p>
+
+                          <a href="../Extensions/UIColor/RGBColor.html" class="slightly-smaller">See more</a>
+                        </div>
+                        <div class="declaration">
+                          <h4>Declaration</h4>
+                          <div class="language">
+                            <p class="aside-title">Swift</p>
+                            <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RGBColor</span></code></pre>
+
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </section>
           </section>
-          <section class="section task-group-section">
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:So7UIColorC7UBSAKitE8rgbColorAbCE8RGBColorVvp"></a>
-                    <a name="//apple_ref/swift/Property/rgbColor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7UIColorC7UBSAKitE8rgbColorAbCE8RGBColorVvp">rgbColor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Decomposes UIColor to its RGBA components</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rgbColor</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIColor/RGBColor.html">RGBColor</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
+        </article>
+      </div>
+      <div class="nav-wrapper">
+        <nav class="nav-bottom">
+          <ul class="nav-groups">
+            <li class="nav-group-name">
+              <a href="../Classes.html">Classes</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Classes/UBSAColour.html">UBSAColour</a>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:So7UIColorC7UBSAKitE8hsbColorAbCE8HSBColorVvp"></a>
-                    <a name="//apple_ref/swift/Property/hsbColor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7UIColorC7UBSAKitE8hsbColorAbCE8HSBColorVvp">hsbColor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Decomposes UIColor to its HSBA components</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hsbColor</span><span class="p">:</span> <span class="kt"><a href="../Extensions/UIColor/HSBColor.html">HSBColor</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:So7UIColorC7UBSAKitE8HSBColorV"></a>
-                    <a name="//apple_ref/swift/Struct/HSBColor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7UIColorC7UBSAKitE8HSBColorV">HSBColor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Holds the CGFloat values of HSBA components of a color</p>
-
-                        <a href="../Extensions/UIColor/HSBColor.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">HSBColor</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:So7UIColorC7UBSAKitE8RGBColorV"></a>
-                    <a name="//apple_ref/swift/Struct/RGBColor" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So7UIColorC7UBSAKitE8RGBColorV">RGBColor</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Holds the CGFloat values of RGBA components of a color</p>
-
-                        <a href="../Extensions/UIColor/RGBColor.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">RGBColor</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
+                <li class="nav-group-task">
+                  <a href="../Classes/UBSAContext.html">UBSAContext</a>
                 </li>
               </ul>
-            </div>
-          </section>
-        </section>
+            </li>
+            <li class="nav-group-name">
+              <a href="../Extensions.html">Extensions</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Extensions/UIColor.html">UIColor</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Extensions/UIColor/HSBColor.html">– HSBColor</a>
+                </li>
+                <li class="nav-group-task">
+                  <a href="../Extensions/UIColor/RGBColor.html">– RGBColor</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-group-name">
+              <a href="../Structs.html">Structures</a>
+              <ul class="nav-group-tasks">
+                <li class="nav-group-task">
+                  <a href="../Structs/UBSAConfig.html">UBSAConfig</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-wrapper">
         <section id="footer">
-          <p>&copy; 2019 [Ari](<a href="https://ari-s.com/">https://ari-s.com/</a>). All rights reserved. (Last updated: 2019-05-08)</p>
+          <p>&copy; 2019 <a class="link" href="https://ari-s.com/" target="_blank" rel="external">Ari</a>. All rights reserved. (Last updated: 2019-05-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
-      </article>
+      </div>
     </div>
   </body>
 </div>

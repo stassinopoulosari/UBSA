@@ -2,3 +2,5 @@
 docs
 *.sh
 build
+Pods
+Podfile.lock

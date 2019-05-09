@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A24AD69FB6E5D1FD5DF3751 /* Pods_UBSAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61044C601C352E39B2C0DAAC /* Pods_UBSAKit.framework */; };
 		888512E72283BEC00074A399 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 888512E62283BEC00074A399 /* GoogleService-Info.plist */; };
 		88E78D2C2283369500627041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D2B2283369500627041 /* AppDelegate.swift */; };
 		88E78D312283369500627041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E78D2F2283369500627041 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		88E78D5D228342B200627041 /* UBSAMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5C228342B200627041 /* UBSAMainScreenViewController.swift */; };
 		88E78D5F2283434A00627041 /* UBSANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5E2283434A00627041 /* UBSANavigationController.swift */; };
 		88F5F69122835A0F00064D93 /* UBSAMainScreenLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5F69022835A0F00064D93 /* UBSAMainScreenLabel.swift */; };
+		E50D3805284E0B6B33920666 /* Pods_UBSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3345B28CED1CE5B638534E3D /* Pods_UBSA.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3345B28CED1CE5B638534E3D /* Pods_UBSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61044C601C352E39B2C0DAAC /* Pods_UBSAKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBSAKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		888512E62283BEC00074A399 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88E78D282283369500627041 /* UBSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UBSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E78D2B2283369500627041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,10 @@
 		88E78D5C228342B200627041 /* UBSAMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAMainScreenViewController.swift; sourceTree = "<group>"; };
 		88E78D5E2283434A00627041 /* UBSANavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSANavigationController.swift; sourceTree = "<group>"; };
 		88F5F69022835A0F00064D93 /* UBSAMainScreenLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAMainScreenLabel.swift; sourceTree = "<group>"; };
+		985E4EA2C59ED3EAD1D0EA00 /* Pods-UBSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBSA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UBSA/Pods-UBSA.debug.xcconfig"; sourceTree = "<group>"; };
+		A5E17118EFB04466B6DE79B3 /* Pods-UBSAKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBSAKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-UBSAKit/Pods-UBSAKit.release.xcconfig"; sourceTree = "<group>"; };
+		D2A8E1D6516907FE217D10E7 /* Pods-UBSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBSA.release.xcconfig"; path = "Pods/Target Support Files/Pods-UBSA/Pods-UBSA.release.xcconfig"; sourceTree = "<group>"; };
+		F82B27A46EFAAA97D69082A9 /* Pods-UBSAKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBSAKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UBSAKit/Pods-UBSAKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88E78D49228336DA00627041 /* UBSAKit.framework in Frameworks */,
+				E50D3805284E0B6B33920666 /* Pods_UBSA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,18 +90,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A24AD69FB6E5D1FD5DF3751 /* Pods_UBSAKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C24D18F2BDDB13C8C28429A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				985E4EA2C59ED3EAD1D0EA00 /* Pods-UBSA.debug.xcconfig */,
+				D2A8E1D6516907FE217D10E7 /* Pods-UBSA.release.xcconfig */,
+				F82B27A46EFAAA97D69082A9 /* Pods-UBSAKit.debug.xcconfig */,
+				A5E17118EFB04466B6DE79B3 /* Pods-UBSAKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		88E78D1F2283369500627041 = {
 			isa = PBXGroup;
 			children = (
 				88E78D2A2283369500627041 /* UBSA */,
 				88E78D43228336DA00627041 /* UBSAKit */,
 				88E78D292283369500627041 /* Products */,
+				2C24D18F2BDDB13C8C28429A /* Pods */,
+				AA7A487C83D004555631FF21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +165,15 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		AA7A487C83D004555631FF21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3345B28CED1CE5B638534E3D /* Pods_UBSA.framework */,
+				61044C601C352E39B2C0DAAC /* Pods_UBSAKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -160,10 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88E78D3A2283369700627041 /* Build configuration list for PBXNativeTarget "UBSA" */;
 			buildPhases = (
+				81E7BE29EF9BE020BDA9958F /* [CP] Check Pods Manifest.lock */,
 				88E78D242283369500627041 /* Sources */,
 				88E78D252283369500627041 /* Frameworks */,
 				88E78D262283369500627041 /* Resources */,
 				88E78D4E228336DA00627041 /* Embed Frameworks */,
+				B946582A4516A1F159EDD5B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88E78D4B228336DA00627041 /* Build configuration list for PBXNativeTarget "UBSAKit" */;
 			buildPhases = (
+				283F161F4C1042F83FD816F1 /* [CP] Check Pods Manifest.lock */,
 				88E78D3D228336DA00627041 /* Headers */,
 				88E78D3E228336DA00627041 /* Sources */,
 				88E78D3F228336DA00627041 /* Frameworks */,
@@ -251,6 +286,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		283F161F4C1042F83FD816F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UBSAKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81E7BE29EF9BE020BDA9958F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UBSA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B946582A4516A1F159EDD5B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UBSA/Pods-UBSA-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UBSA/Pods-UBSA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88E78D242283369500627041 /* Sources */ = {
@@ -423,6 +533,7 @@
 		};
 		88E78D3B2283369700627041 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 985E4EA2C59ED3EAD1D0EA00 /* Pods-UBSA.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -442,6 +553,7 @@
 		};
 		88E78D3C2283369700627041 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2A8E1D6516907FE217D10E7 /* Pods-UBSA.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -461,6 +573,7 @@
 		};
 		88E78D4C228336DA00627041 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F82B27A46EFAAA97D69082A9 /* Pods-UBSAKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -491,6 +604,7 @@
 		};
 		88E78D4D228336DA00627041 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5E17118EFB04466B6DE79B3 /* Pods-UBSAKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

@@ -39,15 +39,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3T4-9g-4nv">
+                                <rect key="frame" x="140" y="264" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="fY4-eC-b3f"/>
+                                    <constraint firstAttribute="height" constant="40" id="gHo-VL-LD2"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3T4-9g-4nv" firstAttribute="centerX" secondItem="3Oe-WB-q4L" secondAttribute="centerX" id="5Ss-5J-Uyf"/>
                             <constraint firstItem="qSX-z6-ZQs" firstAttribute="leading" secondItem="3Oe-WB-q4L" secondAttribute="leading" id="8Ui-Ro-o6x"/>
                             <constraint firstItem="qSX-z6-ZQs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Dck-PP-ftD"/>
                             <constraint firstItem="pCD-1z-eYT" firstAttribute="leading" secondItem="3Oe-WB-q4L" secondAttribute="leading" id="HsU-Qq-Ces"/>
                             <constraint firstItem="3Oe-WB-q4L" firstAttribute="top" secondItem="pCD-1z-eYT" secondAttribute="bottom" constant="8" symbolic="YES" id="Iew-s4-xzP"/>
                             <constraint firstItem="3Oe-WB-q4L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="L3s-Y8-xwA"/>
                             <constraint firstItem="3Oe-WB-q4L" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="NNN-3F-Y7Y"/>
+                            <constraint firstItem="3T4-9g-4nv" firstAttribute="centerY" secondItem="3Oe-WB-q4L" secondAttribute="centerY" id="Nmt-pI-YOT"/>
                             <constraint firstItem="pCD-1z-eYT" firstAttribute="trailing" secondItem="3Oe-WB-q4L" secondAttribute="trailing" id="TNK-Qc-RTU"/>
                             <constraint firstItem="3Oe-WB-q4L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cgb-fA-Va0"/>
                             <constraint firstItem="qSX-z6-ZQs" firstAttribute="trailing" secondItem="3Oe-WB-q4L" secondAttribute="trailing" id="wgi-bR-QAM"/>
@@ -58,6 +67,12 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="baseline_settings_black_24pt" id="b9B-5d-9tt"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="baseline_info_black_24pt" id="Kub-u1-SYk"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="3T4-9g-4nv" id="Ldm-n1-gHr"/>
+                        <outlet property="classNameLabel" destination="qSX-z6-ZQs" id="iDl-YB-jFQ"/>
+                        <outlet property="endTimeLabel" destination="3Oe-WB-q4L" id="gBu-6c-A5s"/>
+                        <outlet property="startTimeLabel" destination="pCD-1z-eYT" id="kmH-pg-ml2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

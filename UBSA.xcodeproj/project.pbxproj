@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		888512E72283BEC00074A399 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 888512E62283BEC00074A399 /* GoogleService-Info.plist */; };
 		88E78D2C2283369500627041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D2B2283369500627041 /* AppDelegate.swift */; };
 		88E78D312283369500627041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E78D2F2283369500627041 /* Main.storyboard */; };
 		88E78D332283369700627041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E78D322283369700627041 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		888512E62283BEC00074A399 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88E78D282283369500627041 /* UBSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UBSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E78D2B2283369500627041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88E78D302283369500627041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		88E78D2A2283369500627041 /* UBSA */ = {
 			isa = PBXGroup;
 			children = (
+				888512E62283BEC00074A399 /* GoogleService-Info.plist */,
 				88E78D4F2283386B00627041 /* ViewControllers */,
 				88E78D2B2283369500627041 /* AppDelegate.swift */,
 				88E78D2F2283369500627041 /* Main.storyboard */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88E78D362283369700627041 /* LaunchScreen.storyboard in Resources */,
+				888512E72283BEC00074A399 /* GoogleService-Info.plist in Resources */,
 				88E78D332283369700627041 /* Assets.xcassets in Resources */,
 				88E78D312283369500627041 /* Main.storyboard in Resources */,
 			);

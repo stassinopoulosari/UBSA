@@ -5,6 +5,7 @@
  - Credit: https://stackoverflow.com/a/49655560
  */
 extension UIColor {
+    // MARK: - Conversions
     
     /**
      Decomposes UIColor to its RGBA components
@@ -40,6 +41,8 @@ extension UIColor {
         self.getHue(&h, saturation: &s, brightness: &b, alpha: &a);
         return HSBColor(hue: h, saturation: s, brightness: b, alpha: a);
     }
+    
+    //MARK: - Structs
     
     /**
      Holds the CGFloat values of HSBA components of a color

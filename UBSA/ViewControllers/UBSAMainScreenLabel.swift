@@ -14,6 +14,8 @@ import UIKit
 
 class UBSAMainScreenLabel: UILabel {
 
+    //MARK: - Initialisers
+    
     ///Frame initializer: needed for custom colour
     override public init(frame: CGRect) {
         super.init(frame: frame);

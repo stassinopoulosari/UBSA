@@ -23,10 +23,9 @@ $(".token").click(function(event) {
   }
   var link = $(this);
   var animationDuration = 300;
-  var tokenOffset = "35px";
-  var selectedOffset = "25px";
+  var tokenOffset = "15px";
   var original = link.css('marginLeft') == tokenOffset;
-  link.animate({'margin-left':original ? selectedOffset : tokenOffset}, animationDuration);
+  link.animate({'margin-left':original ? "0px" : tokenOffset}, animationDuration);
   $content = link.parent().parent().next();
   $content.slideToggle(animationDuration);
 

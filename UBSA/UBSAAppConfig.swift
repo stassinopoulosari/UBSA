@@ -12,33 +12,32 @@ import UBSAKit
 /**
  Configuration on app-level for UI and name
  */
-public class UBSAAppConfig {
-    
-    ///Initializer is private to prevent initialisation (all methods are static)
-    private init() {}
-    
-    ///UBSA context
-    public static var ubsaContext: UBSAContext {
-        get {
-            return UBSAContext(self.ubsaConfig);
-        }
-    }
-    
-    ///UBSA context
-    public static var c: UBSAContext {
-        get {
-            return ubsaContext;
-        }
-    }
+public struct UBSAAppConfig {
     
     ///UBSA config: Allows configuration of app-level data
     public static var ubsaConfig: UBSAConfig {
         get {
-            let SCHOOL_NAME: String = "Sample School";
-            let SCHOOL_COLOUR: UIColor = UIColor(hue: 39.0/360, saturation: 1.0, brightness: 0.976,  alpha: 1.0);
-            let SCHOOL_IDENTIFIER: String = "sampleSchool";
+            let SCHOOL_NAME: String = "Granada High School";
+            let SCHOOL_COLOUR: UIColor = UIColor(hue: 64.0/360.0, saturation: 1.0, brightness: 1.0,  alpha: 1.0);
+            let SCHOOL_IDENTIFIER: String = "granadaHS";
             return UBSAConfig(withName: SCHOOL_NAME, schoolColour:SCHOOL_COLOUR, schoolIdentifier: SCHOOL_IDENTIFIER);
         }
     };
+    
+    ///Initializer is private to prevent initialisation (all methods are static)
+    private init() {
+    }
+    
+    ///UBSA context
+    public static var ubsaContext: UBSAContext?;
+    
+    public static let sharedContext: UBSAContext = UBSAContext(withConfig: ubsaConfig);
+    
+    ///UBSA context
+    public static var c: UBSAContext? {
+        get {
+            return ubsaContext;
+        }
+    }
     
 }

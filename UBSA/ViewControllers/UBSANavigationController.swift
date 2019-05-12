@@ -13,26 +13,25 @@ import UBSAKit
  Navigation controller with extra UI methods
  */
 public class UBSANavigationController: UINavigationController {
-
+    
+    
     //MARK: - View functions
     
-    ///View did load: changes navigation bar background colour
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.backgroundColor = UBSAAppConfig.c.colour;
+        self.navigationBar.backgroundColor = UBSAAppConfig.sharedContext.colour;
     }
     
     
     
-    ///ViewDidAppear: set background, tint colours
     override public func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated);
-        
+        //super.viewDidAppear(animated);
         UIView.animate(withDuration: 0.5) {
-            self.navigationBar.backgroundColor = UBSAAppConfig.c.colour;
-            self.navigationBar.tintColor = UBSAAppConfig.c.textColour;
-            self.navigationBar.barTintColor = UBSAAppConfig.c.colour;
+            self.navigationBar.backgroundColor = UBSAAppConfig.sharedContext.colour;
+            self.navigationBar.tintColor = UBSAAppConfig.sharedContext.textColour;
+            self.navigationBar.barTintColor = UBSAAppConfig.sharedContext.colour;
         }
+        
     }
     
     // MARK: - Colours
@@ -40,7 +39,8 @@ public class UBSANavigationController: UINavigationController {
     ///Sets preferred status bar style to light or dark depending on background
     override public  var preferredStatusBarStyle: UIStatusBarStyle {
         get {
-            return UBSAAppConfig.c.textColour == .white ? .lightContent : .default;
+            
+            return UBSAAppConfig.sharedContext.textColour == .white ? .lightContent : .default;
         }
     }
     
@@ -61,19 +61,19 @@ public class UBSANavigationController: UINavigationController {
         }
     }
     
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     /**
      Prepare for segue
      
      - See ViewController
-    */
+     */
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-
-
+    
+    
 }

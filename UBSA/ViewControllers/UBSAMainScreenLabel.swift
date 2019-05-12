@@ -19,16 +19,16 @@ class UBSAMainScreenLabel: UILabel {
     ///Frame initializer: needed for custom colour
     override public init(frame: CGRect) {
         super.init(frame: frame);
-        textColor = UBSAAppConfig.c.textColour;
-        tintColor = UBSAAppConfig.c.textColour;
-
+        self.textColor = UBSAAppConfig.sharedContext.textColour;
+        self.tintColor = UBSAAppConfig.sharedContext.textColour;
     }
     
     ///Coder initializer: needed for custom colour
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
-        textColor = UBSAAppConfig.c.textColour;
-        tintColor = UBSAAppConfig.c.textColour;
+            self.textColor = UBSAAppConfig.sharedContext.textColour;
+            self.tintColor = UBSAAppConfig.sharedContext.textColour;
+        
     }
     
     

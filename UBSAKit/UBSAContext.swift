@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 /**
  UBSA Context
@@ -40,10 +41,18 @@ public class UBSAContext {
         }
     }
     
-    /**
-     Parameter config: UBSA configuration for convenience variables and database
-    */
-    public init(_ config: UBSAConfig) {
+    ///Database reference given the school identifier from the config
+    public var database: DatabaseReference {
+        get {
+            return Database.database().reference().child("schools").child(config.schoolIdentifier);
+        }
+    }
+    
+    //public var symbols: [UBSASymbol];
+    
+    
+    public init(withConfig config: UBSAConfig) {
         self.config = config;
     }
+    
 }

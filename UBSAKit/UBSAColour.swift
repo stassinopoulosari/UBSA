@@ -95,7 +95,7 @@ extension UIColor {
  Colour conversion utilities
  */
 public class UBSAColour {
-    
+    private init() {}
     /**
      Checks if background colour is more black than white and returns a commensurate text colour
      

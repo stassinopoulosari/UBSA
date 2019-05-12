@@ -6,31 +6,31 @@
 //  Copyright © 2019 Ari Stassinopoulos. All rights reserved.
 //
 
-import UIKit
+import UIKit;
+import UBSAKit;
 
 /**
  Main screen of the app: the classic Bell Schedule view
  */
 public class UBSAMainScreenViewController: UIViewController {
 
-    @IBOutlet var endTimeLabel: UBSAMainScreenLabel!
-    @IBOutlet var classNameLabel: UBSAMainScreenLabel!
-    @IBOutlet var startTimeLabel: UBSAMainScreenLabel!
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var endTimeLabel: UBSAMainScreenLabel!;
+    @IBOutlet var classNameLabel: UBSAMainScreenLabel!;
+    @IBOutlet var startTimeLabel: UBSAMainScreenLabel!;
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!;
     
     ///ViewDidLoad overrider, sets navigation controller colour
     override public func viewDidLoad() {
         super.viewDidLoad();
-        view.backgroundColor = UBSAAppConfig.c.colour;
-        hideTextFields();
-        showActivityIndicator();
-        if let navigationController = self.navigationController { // Check if navi controller exists
-            if let ubsaNavigationController = navigationController as? UBSANavigationController{ // Make sure navi controller is a custom one
-                ubsaNavigationController.hasBackground = false; // Disappear background of navi controller.
+            self.view.backgroundColor = UBSAAppConfig.sharedContext.colour;
+            self.hideTextFields();
+            self.showActivityIndicator();
+            if let navigationController = self.navigationController { // Check if navi controller exists
+                if let ubsaNavigationController = navigationController as? UBSANavigationController{ // Make sure navi controller is a custom one
+                    ubsaNavigationController.hasBackground = false; // Disappear background of navi controller.
+                }
             }
         }
-        
-    }
     
     func hideTextFields() {
         [endTimeLabel, classNameLabel, startTimeLabel].forEach { (label) in
@@ -41,7 +41,7 @@ public class UBSAMainScreenViewController: UIViewController {
     }
     
     func showActivityIndicator() {
-        activityIndicator.style = UBSAAppConfig.c.textColour == .white ? .white : .gray;
+        activityIndicator.style = UBSAAppConfig.sharedContext.textColour == .white ? .white : .gray;
         activityIndicator.startAnimating();
     }
     
@@ -69,5 +69,4 @@ public class UBSAMainScreenViewController: UIViewController {
         });
     }
     
-
 }

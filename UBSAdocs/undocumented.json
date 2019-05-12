@@ -1,6 +1,26 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSA/UBSAAppConfig.swift",
+      "line": 34,
+      "symbol": "UBSAAppConfig.sharedContext",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSA/ViewControllers/UBSANavigationController.swift",
+      "line": 20,
+      "symbol": "UBSANavigationController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSA/ViewControllers/UBSANavigationController.swift",
+      "line": 27,
+      "symbol": "UBSANavigationController.viewDidAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/qsysmine/Documents/ubsa/code/UBSA"
 }

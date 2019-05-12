@@ -1,6 +1,12 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAContext.swift",
+      "line": 54,
+      "symbol": "UBSAContext.init(withConfig:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/qsysmine/Documents/ubsa/code/UBSA"
 }

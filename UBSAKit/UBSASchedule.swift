@@ -28,8 +28,12 @@ public struct UBSASchedule {
         for period in periods {
             let startComponents = period.startTimeComponents;
             let endComponents = period.endTimeComponents;
-            let isGreaterThanStart = hrs >= startComponents.0 && mins >= startComponents.1;
-            let isSmallerThanEnd = hrs <= endComponents.0 && mins < endComponents.1;
+            print(period.name);
+            print(startComponents);
+            print(endComponents);
+            print((hrs, mins));
+            let isGreaterThanStart = hrs > startComponents.0 || (hrs == startComponents.0 && mins >= startComponents.1);
+            let isSmallerThanEnd = hrs < endComponents.0 || (hrs == endComponents.1 && mins < endComponents.1);
             if(isGreaterThanStart && isSmallerThanEnd) {
                 return period;
             }

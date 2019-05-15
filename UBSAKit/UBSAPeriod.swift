@@ -44,7 +44,7 @@ public class UBSAPeriod {
     public var startTimeDisplay: String {
         if(using12hClockFormat()) {
             let (hh, mm) = startTimeComponents;
-            return "\(hh % 12):\(mm < 10 ? "0\(mm)" : "\(mm)") \(hh >= 12 ? "PM" : "AM")";
+            return "\((hh % 12 == 0 ? 12 : hh % 12)):\(mm < 10 ? "0\(mm)" : "\(mm)") \(hh >= 12 ? "PM" : "AM")";
         } else {
             return startTime;
         }
@@ -126,5 +126,16 @@ public class UBSAPeriod {
         let pmRange = dateString.range(of: formatter.pmSymbol)
         
         return !(pmRange == nil && amRange == nil)
+        
+    }
+    
+    public func distanceFromEnd(date: Date) -> TimeInterval {
+        let calendar = Calendar(identifier: .gregorian);
+        let hh = calendar.component(.hour, from: date);
+        let mm = calendar.component(.minute, from: date);
+        let ss = calendar.component(.second, from: date);
+        let (eHH, eMM) = endTimeComponents;
+        let mLeft = 60 * (eHH - hh) + (eMM - mm);
+        return TimeInterval(60 * (mLeft) - ss);
     }
 }

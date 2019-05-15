@@ -98,7 +98,7 @@ public class UBSACalendar {
     }
     
     public func getSchedule(forDay day: Int) -> UBSASchedule? {
-        let index = day - 1;
+        let index = day;
         if let schedule = schedules[index] {
             return schedule;
         } else {

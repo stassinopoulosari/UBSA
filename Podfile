@@ -6,10 +6,6 @@ target 'UBSA' do
   use_frameworks!
 
   # Pods for UBSA
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/Crash'
 
 end
 

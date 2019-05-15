@@ -24,11 +24,11 @@ public class UBSASymbols {
         for symbol in symbols {
             renderedString = symbol.render(templateString: renderedString);
         }
-        return templateString;
+        return renderedString;
     }
     
     ///Make a table of symbols from a db reference;
-    public static func makeSymbols(fromReference reference: DatabaseReference, completion callback: @escaping ([UBSASymbol]?) -> Void) {
+    public static func makeSymbols(fromReference reference: DatabaseReference, completion callback: @escaping (UBSASymbols?) -> Void) {
         reference.observeSingleEvent(of: .value) { (snapshot) in
             if(snapshot.exists()) {
                 if let snapshotValue = snapshot.value, let snapshotDict = snapshotValue as? [String: Any] {
@@ -44,7 +44,7 @@ public class UBSASymbols {
                             continue;
                         }
                     }
-                    return callback(toReturn); // Success condition
+                    return callback(UBSASymbols(withSymbols: toReturn)); // Success condition
                 } else {
                     return callback(nil);
                 }
@@ -52,6 +52,10 @@ public class UBSASymbols {
                 return callback(nil);
             }
         }
+    }
+    
+    public static func symbolPath(_ c: UBSAContext) -> DatabaseReference {
+        return c.database.child("symbols");
     }
 }
 

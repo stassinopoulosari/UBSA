@@ -99,6 +99,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSAPeriod.swift",
+      "line": 132,
+      "symbol": "UBSAPeriod.distanceFromEnd(date:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASchedule.swift",
       "line": 16,
       "symbol": "UBSASchedule.periods",
@@ -149,49 +156,56 @@
     },
     {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
-      "line": 58,
+      "line": 57,
+      "symbol": "UBSASymbols.symbolPath(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
+      "line": 62,
       "symbol": "UBSASymbol",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
-      "line": 59,
+      "line": 63,
       "symbol": "UBSASymbol.identifier",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
-      "line": 60,
+      "line": 64,
       "symbol": "UBSASymbol.value",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
-      "line": 70,
+      "line": 74,
       "symbol": "UBSASymbol.defaultValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
-      "line": 72,
+      "line": 76,
       "symbol": "UBSASymbol.render(templateString:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
-      "line": 76,
+      "line": 80,
       "symbol": "UBSASymbol.matches(symbolString:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/qsysmine/Documents/ubsa/code/UBSA/UBSAKit/UBSASymbols.swift",
-      "line": 80,
+      "line": 84,
       "symbol": "UBSASymbol.init(identifier:defaultValue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

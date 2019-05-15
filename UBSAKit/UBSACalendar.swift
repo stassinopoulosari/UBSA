@@ -23,36 +23,9 @@ public class UBSACalendar {
      */
     public var schedules: [UBSASchedule?];
     
-    /**
-     Month
-     
-     Int month 0-11
-     */
-    public var month: Int {
-        didSet {
-            if(month < 0 || month > 11) {
-                month = 0;
-            }
-        }
-    }
     
-    /**
-     Year
-     
-     Int year 1970-present
-     */
-    public var year: Int {
-        didSet {
-            if(year < 1970) {
-                year = 1970;
-            }
-        }
-    }
-    
-    private init(withSchedules schedules: [UBSASchedule?], month: Int, year: Int) {
+    private init(withSchedules schedules: [UBSASchedule?]) {
         self.schedules = schedules;
-        self.month = month;
-        self.year = year;
     }
     
     /**
@@ -62,36 +35,25 @@ public class UBSACalendar {
      - Parameter scheduleTable: UBSA Schedule Table with the schedules for the school in question
      - Parameter completion: Function taking optional UBSA Calendar (nil if failed)
      */
-    public static func makeCalendar(withReference reference: DatabaseReference, scheduleTable: UBSAScheduleTable, month: Int, year: Int, completion callback: @escaping (_: UBSACalendar?)->Void) {
-        if(month < 0 || month > 11) {
-            callback(nil);
-            return;
-        }
-        if(year < 1970) {
-            callback(nil);
-            return;
-        }
+    public static func makeCalendar(withReference reference: DatabaseReference, scheduleTable: UBSAScheduleTable, completion callback: @escaping (_: UBSACalendar?)->Void) {
         reference.observeSingleEvent(of: .value)  { (calendarSnapshot) in
             if(!calendarSnapshot.exists()) {
+                print("Calendar does not exist");
                 callback(nil);
                 return;
             }
             if let snapshotValue = calendarSnapshot.value {
-                if let snapshotDict = snapshotValue as? [String: Any] {
-                    if let calendarString = snapshotDict["data"] as? String {
-                        let parsedSchedules = parse(calendarString: calendarString, withScheduleTable: scheduleTable);
-                        if let schedules = parsedSchedules {
-                            callback(UBSACalendar(withSchedules: schedules, month: month, year: year));
-                            return;
-                        } else {
-                            callback(nil);
-                            return;
-                        }
+                if let calendarString = snapshotValue as? String {
+                    let parsedSchedules = parse(calendarString: calendarString, withScheduleTable: scheduleTable);
+                    if let schedules = parsedSchedules {
+                        callback(UBSACalendar(withSchedules: schedules));
+                        return;
                     } else {
                         callback(nil);
                         return;
                     }
                 } else {
+                    print("Calendar is not a string");
                     return callback(nil);
                 }
             }
@@ -114,5 +76,33 @@ public class UBSACalendar {
             }
         }
         return toReturn;
+    }
+    
+    private static func generateCalendarPath(_ c: UBSAContext, year: Int, month: Int) -> DatabaseReference {
+        let yearStr = "\(year)";
+        let monthStr = month < 10 ? "0\(month)" : "\(month)";
+        return c.database.child("calendars/\(yearStr)/\(monthStr)");
+    }
+    
+    public static func calendarPath(_ c: UBSAContext, fromDate date: Date) -> DatabaseReference {
+        let calendar = Calendar(identifier: .gregorian);
+        let year: Int = calendar.component(.year, from: date)
+        let month: Int = calendar.component(.month, from: date);
+        return generateCalendarPath(c, year: year, month: month);
+    }
+    
+    public static func day(fromDate date: Date) -> Int {
+        let calendar = Calendar(identifier: .gregorian);
+        let day: Int = calendar.component(.day, from: date);
+        return day;
+    }
+    
+    public func getSchedule(forDay day: Int) -> UBSASchedule? {
+        let index = day - 1;
+        if let schedule = schedules[index] {
+            return schedule;
+        } else {
+            return nil;
+        }
     }
 }

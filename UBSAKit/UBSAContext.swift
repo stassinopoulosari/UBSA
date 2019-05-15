@@ -14,11 +14,18 @@ import Firebase
  UBSA Context
  
  Similar to Android Context, allows for database access and other shared components
-*/
+ */
 public class UBSAContext {
     
     ///Stores the configuration provided in init
     public var config: UBSAConfig;
+    
+    ///Stores the identifier from the config
+    public var identifier: String {
+        get {
+            return config.schoolIdentifier;
+        }
+    }
     
     ///Allows access to the colour from the config
     public var colour: UIColor {
@@ -44,6 +51,9 @@ public class UBSAContext {
     ///Database reference given the school identifier from the config
     public var database: DatabaseReference {
         get {
+            if FirebaseApp.app() == nil {
+                FirebaseApp.configure();
+            }
             return Database.database().reference().child("schools").child(config.schoolIdentifier);
         }
     }

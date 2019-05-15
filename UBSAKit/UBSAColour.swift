@@ -95,7 +95,10 @@ extension UIColor {
  Colour conversion utilities
  */
 public class UBSAColour {
+    
+    ///Initializer is private because all methods are static.
     private init() {}
+    
     /**
      Checks if background colour is more black than white and returns a commensurate text colour
      

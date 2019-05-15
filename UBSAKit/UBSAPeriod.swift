@@ -8,43 +8,86 @@
 
 import Foundation
 
-public struct UBSAPeriod {
+public class UBSAPeriod {
     
-    private var symbol: String? = nil;
-    private var name: String? = nil;
+    public var name: String;
     
-    private var context: UBSAContext? = nil;
-    
-    public mutating func setContext(_ context: UBSAContext) -> UBSAPeriod {
-        self.context = context;
-        return self;
-    }
+    public var context: UBSAContext;
     
     public var startTime: String;
     public var endTime: String;
     public var isPassingPeriod: Bool = false;
     
+    public var startTimeComponents: (Int, Int) {
+        get {
+            let sp = startTime.split(separator: ":");
+            if(sp.count < 2) { return (0, 0); }
+            if let startC = Int(String(sp[0])), let endC = Int(String(sp[1])) {
+                return (startC, endC);
+            } else {
+                return (0, 0);
+            }        }
+    }
     
-    init(withStartTime startTime: String, withEndTime endTime: String) {
+    public var endTimeComponents: (Int, Int) {
+        get {
+            let sp = endTime.split(separator: ":");
+            if(sp.count < 2) { return (0, 0); }
+            if let startC = Int(String(sp[0])), let endC = Int(String(sp[1])) {
+                return (startC, endC);
+            } else {
+                return (0, 0);
+            }
+        }
+    };
+    
+    public var startTimeDisplay: String {
+        if(using12hClockFormat()) {
+            let (hh, mm) = startTimeComponents;
+            return "\(hh % 12):\(mm < 10 ? "0\(mm)" : "\(mm)") \(hh >= 12 ? "PM" : "AM")";
+        } else {
+            return startTime;
+        }
+    }
+    
+    public var endTimeDisplay: String {
+        if(using12hClockFormat()) {
+            let (hh, mm) = endTimeComponents;
+            return "\(hh % 12):\(mm < 10 ? "0\(mm)" : "\(mm)") \(hh >= 12 ? "PM" : "AM")";
+        } else {
+            return endTime;
+        }
+    }
+    
+    init(_ c: UBSAContext, withStartTime startTime: String, withEndTime endTime: String, withName name: String) {
         self.startTime = startTime;
         self.endTime = endTime;
+        self.name = name;
+        self.name = name;
+        self.context = c;
     }
     
-    init(withStartTime startTime: String, withLength len: Int) {
+    init(_ c: UBSAContext, withStartTime startTime: String, withLength len: Int, withName name: String) {
         self.startTime = startTime;
         self.endTime = "";
-        self.endTime = add(minutes: len, toTime: startTime)
-    }
-    
-    init(afterPrevious prev: UBSAPeriod, withLength len: Int) {
-        startTime = prev.endTime;
-        endTime = "";
+        self.context = c;
+        self.name = name;
         endTime = add(minutes: len, toTime: startTime);
     }
     
-    init(afterPrevious prev: UBSAPeriod, withEndTime endTime: String) {
+    init(_ c: UBSAContext, afterPrevious prev: UBSAPeriod, withLength len: Int, withName name: String) {
+        startTime = prev.endTime;
+        endTime = "";
+        self.name = name;
+        self.context = c;
+        endTime = add(minutes: len, toTime: startTime);
+    }
+    
+    init(_ c: UBSAContext, afterPrevious prev: UBSAPeriod, withEndTime endTime: String, withName name: String) {
         startTime = prev.endTime;
         self.endTime = endTime;
+        self.context = c;
+        self.name = name;
     }
     
     private func add(minutes len: Int, toTime startTime: String) -> String {
@@ -69,5 +112,19 @@ public struct UBSAPeriod {
             return "\(hours < 10 ? "0\(hours)" : String(hours)):\(minutes < 10 ? "0\(minutes)" : String(minutes))";
         }
         return startTime;
+    }
+    
+    private func using12hClockFormat() -> Bool {
+        
+        let formatter = DateFormatter()
+        formatter.locale = Locale.current
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        
+        let dateString = formatter.string(from: Date())
+        let amRange = dateString.range(of: formatter.amSymbol)
+        let pmRange = dateString.range(of: formatter.pmSymbol)
+        
+        return !(pmRange == nil && amRange == nil)
     }
 }

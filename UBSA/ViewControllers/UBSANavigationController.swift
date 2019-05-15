@@ -12,7 +12,7 @@ import UBSAKit
 /**
  Navigation controller with extra UI methods
  */
-public class UBSANavigationController: UINavigationController {
+class UBSANavigationController: UINavigationController {
     
     
     //MARK: - View functions

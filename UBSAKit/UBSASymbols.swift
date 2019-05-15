@@ -13,10 +13,12 @@ public class UBSASymbols {
     
     public var symbols: [UBSASymbol];
     
+    ///Initialize with a symbol table
     public init(withSymbols symbols: [UBSASymbol]) {
         self.symbols = symbols;
     }
     
+    ///Render a string with the symbols
     public func render(templateString: String) -> String {
         var renderedString = templateString;
         for symbol in symbols {
@@ -25,23 +27,19 @@ public class UBSASymbols {
         return templateString;
     }
     
-    public func render(symbolString: String) ->  String {
-        for symbol in symbols {
-            if(symbol.matches(symbolString: symbolString)) {
-                return symbol.value;
-            }
-        }
-        return symbolString;
-    }
-    
+    ///Make a table of symbols from a db reference;
     public static func makeSymbols(fromReference reference: DatabaseReference, completion callback: @escaping ([UBSASymbol]?) -> Void) {
         reference.observeSingleEvent(of: .value) { (snapshot) in
             if(snapshot.exists()) {
                 if let snapshotValue = snapshot.value, let snapshotDict = snapshotValue as? [String: Any] {
                     var toReturn = [UBSASymbol]();
-                    for (key, value) in snapshotDict {
-                        if let valueString = value as? String {
-                            toReturn.append(UBSASymbol(identifier: key, defaultValue: valueString));
+                    for (key, symbolEntry) in snapshotDict {
+                        if let valueDict = symbolEntry as? [String: Any] {
+                            if let valueString = valueDict["value"] as? String {
+                                toReturn.append(UBSASymbol(identifier: key, defaultValue: valueString));
+                            } else {
+                                continue;
+                            }
                         } else {
                             continue;
                         }

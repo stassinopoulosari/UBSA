@@ -13,12 +13,12 @@
         <!--Main Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="UBSAMainScreenViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainScreenViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oe-WB-q4L" customClass="UBSAMainScreenLabel" customModule="UBSA" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oe-WB-q4L" customClass="MainScreenLabel" customModule="UBSA" customModuleProvider="target">
                                 <rect key="frame" x="16" y="254" width="288" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="r9z-ci-InZ"/>
@@ -27,7 +27,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCD-1z-eYT" customClass="UBSAMainScreenLabel" customModule="UBSA" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCD-1z-eYT" customClass="MainScreenLabel" customModule="UBSA" customModuleProvider="target">
                                 <rect key="frame" x="16" y="246" width="288" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -64,10 +64,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="4wb-XO-cwb">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="baseline_settings_black_24pt" id="b9B-5d-9tt"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="baseline_settings_black_24pt" id="b9B-5d-9tt">
+                            <connections>
+                                <action selector="onSettingsButtonPressed:" destination="BYZ-38-t0r" id="x4S-I4-T9O"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="baseline_info_black_24pt" id="Kub-u1-SYk">
                             <connections>
-                                <action selector="onScheduleButtonpressed:" destination="BYZ-38-t0r" id="I1Y-sN-pCs"/>
+                                <action selector="onScheduleButtonPressed:" destination="BYZ-38-t0r" id="ife-ye-kbD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -77,22 +81,100 @@
                         <outlet property="endTimeLabel" destination="3Oe-WB-q4L" id="gBu-6c-A5s"/>
                         <outlet property="startTimeLabel" destination="pCD-1z-eYT" id="kmH-pg-ml2"/>
                         <segue destination="jLE-AT-TCO" kind="show" identifier="homeScreenToScheduleSegue" id="G0Y-4r-M7e"/>
+                        <segue destination="EmW-uR-HS8" kind="show" identifier="homeScreenToSettingsSegue" id="UzK-b1-uZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1041" y="751"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="OTv-zt-g5q">
+            <objects>
+                <tableViewController title="Settings" id="EmW-uR-HS8" customClass="SettingsViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="oah-N8-Na8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Class Names" id="aGY-cN-sOK">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="ujG-I8-wEa">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ujG-I8-wEa" id="tKg-F4-3Ao">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJD-zl-ol1">
+                                                    <rect key="frame" x="16" y="0.0" width="304" height="43.5"/>
+                                                    <state key="normal" title="Edit Class Names"/>
+                                                    <connections>
+                                                        <segue destination="USw-kp-r8e" kind="show" identifier="settingsToClassNamesSegue" id="dm0-1B-Fnj"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zJD-zl-ol1" firstAttribute="top" secondItem="tKg-F4-3Ao" secondAttribute="top" id="ARx-sv-0IW"/>
+                                                <constraint firstItem="zJD-zl-ol1" firstAttribute="leading" secondItem="tKg-F4-3Ao" secondAttribute="leadingMargin" id="TGI-2v-LFu"/>
+                                                <constraint firstItem="zJD-zl-ol1" firstAttribute="centerY" secondItem="tKg-F4-3Ao" secondAttribute="centerY" id="fnf-Pi-VzQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="zJD-zl-ol1" secondAttribute="trailing" id="zfb-r6-rYm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="About" id="LNQ-wU-FlC">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="dEH-MC-5Su">
+                                        <rect key="frame" x="0.0" y="155.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dEH-MC-5Su" id="nWM-6J-4oj">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg6-Bq-KjO">
+                                                    <rect key="frame" x="16" y="0.0" width="304" height="43.5"/>
+                                                    <state key="normal" title="About AppName"/>
+                                                    <connections>
+                                                        <segue destination="GjN-Ee-BYl" kind="show" id="iHZ-Ei-GHp"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Eg6-Bq-KjO" firstAttribute="leading" secondItem="nWM-6J-4oj" secondAttribute="leadingMargin" id="1Lg-oD-vnL"/>
+                                                <constraint firstAttribute="trailing" secondItem="Eg6-Bq-KjO" secondAttribute="trailing" id="T1M-Sl-EVw"/>
+                                                <constraint firstItem="Eg6-Bq-KjO" firstAttribute="centerY" secondItem="nWM-6J-4oj" secondAttribute="centerY" id="Vsz-AM-efa"/>
+                                                <constraint firstItem="Eg6-Bq-KjO" firstAttribute="top" secondItem="nWM-6J-4oj" secondAttribute="top" id="zZz-Iv-8CY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="EmW-uR-HS8" id="z5k-gk-BXK"/>
+                            <outlet property="delegate" destination="EmW-uR-HS8" id="Koo-nX-QvB"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="infoButton" destination="Eg6-Bq-KjO" id="JgY-cP-kDr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jQJ-FR-3fR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040.625" y="-121.47887323943662"/>
+        </scene>
         <!--Today's Schedule-->
         <scene sceneID="hMY-mI-hLi">
             <objects>
-                <tableViewController title="Today's Schedule" id="jLE-AT-TCO" customClass="UBSAScheduleTableViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Today's Schedule" id="jLE-AT-TCO" customClass="ScheduleTableViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xg6-mN-gu1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="scheduleCell" id="RUl-42-7c3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="scheduleCell" id="RUl-42-7c3" customClass="ScheduleClassCell" customModule="UBSA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RUl-42-7c3" id="T3L-ho-6tT">
@@ -111,6 +193,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZR-Wu-eMU">
+                                            <rect key="frame" x="16" y="0.0" width="304" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="SdH-Wk-P68" secondAttribute="bottom" id="6c0-uw-O8f"/>
@@ -122,6 +211,11 @@
                                         <constraint firstItem="SdH-Wk-P68" firstAttribute="leading" secondItem="T3L-ho-6tT" secondAttribute="leading" constant="20" symbolic="YES" id="uxT-qY-Ate"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fallbackField" destination="IZR-Wu-eMU" id="DBE-8p-FGp"/>
+                                    <outlet property="labelField" destination="SdH-Wk-P68" id="mBp-rt-LUr"/>
+                                    <outlet property="startAndEndField" destination="Z2v-oj-geu" id="bO3-KX-wH4"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -129,15 +223,89 @@
                             <outlet property="delegate" destination="jLE-AT-TCO" id="vx2-13-3Jc"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Today's Schedule" id="kq7-ks-nyE">
+                        <barButtonItem key="rightBarButtonItem" image="baseline_info_black_24pt" id="E4F-SW-vAB">
+                            <connections>
+                                <action selector="allSchedulesButtonClicked:" destination="jLE-AT-TCO" id="BHY-Dy-iKG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="ChS-N6-eZb" kind="show" identifier="todaysScheduleToAllSchedulesSegue" id="H38-Pr-5u3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0b3-2k-57P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1882.5" y="750"/>
+            <point key="canvasLocation" x="1040.625" y="1608.8028169014085"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--All Schedules-->
+        <scene sceneID="YIu-uf-KNZ">
+            <objects>
+                <tableViewController title="All Schedules" id="ChS-N6-eZb" customClass="AllSchedulesTableViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZFk-y6-xfZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="scheduleCell" id="0HI-u1-eJg" customClass="ScheduleClassCell" customModule="UBSA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0HI-u1-eJg" id="OUt-UZ-Jjw">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zog-nh-gax">
+                                            <rect key="frame" x="20" y="0.0" width="129" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="00:00AM-00:00AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lso-Y5-TF4">
+                                            <rect key="frame" x="149" y="0.0" width="151" height="43.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HP4-tT-GuB">
+                                            <rect key="frame" x="8" y="-1" width="304" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Zog-nh-gax" firstAttribute="top" secondItem="OUt-UZ-Jjw" secondAttribute="top" id="6Ab-Qr-byr"/>
+                                        <constraint firstAttribute="bottom" secondItem="lso-Y5-TF4" secondAttribute="bottom" id="6dk-xd-A7G"/>
+                                        <constraint firstItem="lso-Y5-TF4" firstAttribute="top" secondItem="OUt-UZ-Jjw" secondAttribute="top" id="D1o-xG-GKy"/>
+                                        <constraint firstAttribute="bottom" secondItem="Zog-nh-gax" secondAttribute="bottom" id="Slu-Me-uLi"/>
+                                        <constraint firstAttribute="trailing" secondItem="lso-Y5-TF4" secondAttribute="trailing" constant="20" symbolic="YES" id="dWW-Mn-7lj"/>
+                                        <constraint firstItem="lso-Y5-TF4" firstAttribute="leading" secondItem="Zog-nh-gax" secondAttribute="trailing" id="kF7-lV-Eoo"/>
+                                        <constraint firstItem="Zog-nh-gax" firstAttribute="leading" secondItem="OUt-UZ-Jjw" secondAttribute="leading" constant="20" symbolic="YES" id="wSg-Vt-YUP"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fallbackField" destination="HP4-tT-GuB" id="0CR-LK-s1j"/>
+                                    <outlet property="labelField" destination="Zog-nh-gax" id="eM4-Y3-OMa"/>
+                                    <outlet property="startAndEndField" destination="lso-Y5-TF4" id="ukx-O4-6aW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ChS-N6-eZb" id="Emd-eY-AAq"/>
+                            <outlet property="delegate" destination="ChS-N6-eZb" id="VwW-M5-cDX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="All Schedules" id="3wW-V0-om8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0YT-WW-ghc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954" y="1609"/>
+        </scene>
+        <!--Styled Navigation Controller-->
         <scene sceneID="Ir3-Z7-H5H">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPD-vj-QQn" customClass="UBSANavigationController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xPD-vj-QQn" customClass="StyledNavigationController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t2O-3u-ZRC">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -151,6 +319,350 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jEx-CD-Z1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="252" y="751.57421289355329"/>
+        </scene>
+        <!--Class Name Table View Controller-->
+        <scene sceneID="b07-Uq-OAC">
+            <objects>
+                <tableViewController id="USw-kp-r8e" customClass="ClassNameTableViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="kA2-SE-MBR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="classNameCell" id="bLi-Ht-EKY" customClass="SymbolCell" customModule="UBSA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bLi-Ht-EKY" id="7P5-op-dgO">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Default Value" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RN3-nb-UQw">
+                                            <rect key="frame" x="16" y="0.0" width="304" height="43.5"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RN3-nb-UQw" firstAttribute="centerY" secondItem="7P5-op-dgO" secondAttribute="centerY" id="88t-dH-KNx"/>
+                                        <constraint firstItem="RN3-nb-UQw" firstAttribute="leading" secondItem="7P5-op-dgO" secondAttribute="leadingMargin" id="CUo-Fc-qF8"/>
+                                        <constraint firstItem="RN3-nb-UQw" firstAttribute="top" secondItem="7P5-op-dgO" secondAttribute="top" id="X9I-ac-HeS"/>
+                                        <constraint firstAttribute="trailing" secondItem="RN3-nb-UQw" secondAttribute="trailing" id="laj-X0-mgi"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="RN3-nb-UQw" id="fp7-hg-PgJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="USw-kp-r8e" id="aOL-2K-Jag"/>
+                            <outlet property="delegate" destination="USw-kp-r8e" id="bwO-a1-ivp"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="onK-i9-TCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2257.5" y="-121.47887323943662"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="ioA-dV-UxQ">
+            <objects>
+                <tableViewController title="About" id="GjN-Ee-BYl" customClass="AboutViewController" customModule="UBSA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="DO9-v4-jGW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="About" id="UHN-ox-g85">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="200" id="Iqw-KC-8AW">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iqw-KC-8AW" id="zNY-U3-brV">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKR-df-gaN">
+                                                    <rect key="frame" x="16" y="0.0" width="304" height="199.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment>
+                                                            <string key="content">This app is a UBSA product.
+
+UBSA © 2019 Ari Stassinopoulos
+
+Libraries:
+
+- Firebase</string>
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                    <tabStops>
+                                                                        <textTab alignment="left" location="36">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="72">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="108">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="144">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="180">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="216">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="252">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="288">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="324">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="360">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="396">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="432">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                    </tabStops>
+                                                                </paragraphStyle>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment>
+                                                            <string key="content">
+https://firebase.google.com</string>
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                                <url key="NSLink" string="https://firebase.google.com"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                    <tabStops>
+                                                                        <textTab alignment="left" location="36">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="72">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="108">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="144">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="180">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="216">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="252">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="288">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="324">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="360">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="396">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="432">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                    </tabStops>
+                                                                </paragraphStyle>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment>
+                                                            <string key="content">
+
+- UBSAKit
+</string>
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                    <tabStops>
+                                                                        <textTab alignment="left" location="36">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="72">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="108">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="144">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="180">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="216">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="252">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="288">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="324">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="360">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="396">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="432">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                    </tabStops>
+                                                                </paragraphStyle>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment content="https://github.com/stassinopoulosari/UBSA">
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                                <url key="NSLink" string="https://github.com/stassinopoulosari/UBSA"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                    <tabStops>
+                                                                        <textTab alignment="left" location="36">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="72">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="108">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="144">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="180">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="216">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="252">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="288">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="324">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="360">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="396">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="432">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                    </tabStops>
+                                                                </paragraphStyle>
+                                                            </attributes>
+                                                        </fragment>
+                                                        <fragment>
+                                                            <string key="content">
+
+Hello from beautiful Dublin, California!</string>
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                    <tabStops>
+                                                                        <textTab alignment="left" location="36">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="72">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="108">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="144">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="180">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="216">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="252">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="288">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="324">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="360">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="396">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                        <textTab alignment="left" location="432">
+                                                                            <options/>
+                                                                        </textTab>
+                                                                    </tabStops>
+                                                                </paragraphStyle>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VKR-df-gaN" firstAttribute="centerY" secondItem="zNY-U3-brV" secondAttribute="centerY" id="WPe-yf-LxD"/>
+                                                <constraint firstItem="VKR-df-gaN" firstAttribute="top" secondItem="zNY-U3-brV" secondAttribute="top" id="ayT-8v-kJr"/>
+                                                <constraint firstAttribute="trailing" secondItem="VKR-df-gaN" secondAttribute="trailing" id="hFc-4N-lAy"/>
+                                                <constraint firstItem="VKR-df-gaN" firstAttribute="leading" secondItem="zNY-U3-brV" secondAttribute="leadingMargin" id="jTo-jJ-YXp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="GjN-Ee-BYl" id="qRP-em-c79"/>
+                            <outlet property="delegate" destination="GjN-Ee-BYl" id="JDp-DH-pZL"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="infoTextView" destination="VKR-df-gaN" id="NBR-vn-LnH"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CpL-Ny-T8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3457.5" y="-121.47887323943662"/>
         </scene>
     </scenes>
     <resources>

@@ -1,5 +1,5 @@
 //
-//  UBSANavigationController.swift
+//  StyledNavigationController.swift
 //  UBSA
 //
 //  Created by Ari Stassinopoulos on 5/8/19.
@@ -12,14 +12,14 @@ import UBSAKit
 /**
  Navigation controller with extra UI methods
  */
-class UBSANavigationController: UINavigationController {
+class StyledNavigationController: UINavigationController {
     
     
     //MARK: - View functions
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationBar.backgroundColor = UBSAAppConfig.sharedContext.colour;
+        self.navigationBar.backgroundColor = AppConfig.C.colour;
     }
     
     
@@ -28,9 +28,9 @@ class UBSANavigationController: UINavigationController {
         //super.viewDidAppear(animated);
         print("Viewdidappear beginning in navi")
         UIView.animate(withDuration: 0.5) {
-            self.navigationBar.backgroundColor = UBSAAppConfig.sharedContext.colour;
-            self.navigationBar.tintColor = UBSAAppConfig.sharedContext.textColour;
-            self.navigationBar.barTintColor = UBSAAppConfig.sharedContext.colour;
+            self.navigationBar.backgroundColor = AppConfig.C.colour;
+            self.navigationBar.tintColor = AppConfig.C.textColour;
+            self.navigationBar.barTintColor = AppConfig.C.colour;
         }
         
     }
@@ -41,7 +41,7 @@ class UBSANavigationController: UINavigationController {
     override public  var preferredStatusBarStyle: UIStatusBarStyle {
         get {
             
-            return UBSAAppConfig.sharedContext.textColour == .white ? .lightContent : .default;
+            return AppConfig.C.textColour == .white ? .lightContent : .default;
         }
     }
     

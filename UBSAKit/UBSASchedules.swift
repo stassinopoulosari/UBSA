@@ -1,5 +1,5 @@
 //
-//  UBSAScheduleTable.swift
+//  UBSASchedule.swift
 //  UBSAKit
 //
 //  Created by Ari Stassinopoulos on 5/9/19.
@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import Firebase
 
 /**
- UBSA Schedule Table
+ UBSA Schedules
  */
-public struct UBSAScheduleTable {
+public struct UBSASchedules {
     ///Schedules: table of schedules by identifier
     public var schedules: [String: UBSASchedule];
     
@@ -20,7 +20,14 @@ public struct UBSAScheduleTable {
         self.schedules = schedules;
     }
     
-    public static func makeScheduleTable(_ c: UBSAContext, withReference reference: DatabaseReference, completion callback: @escaping (_:UBSAScheduleTable?)->Void) {
+    
+    /// Make a schedule table
+    ///
+    /// - Parameters:
+    ///     - c: Context
+    ///     - withReference: The reference from which to make the table
+    ///     - completion: A callback function
+    public static func makeScheduleTable(_ c: UBSAContext, withReference reference: DatabaseReference, completion callback: @escaping (_:UBSASchedules?)->Void) {
         reference.observeSingleEvent(of: .value) { (snapshot) in
             if(!snapshot.exists()) {
                 callback(nil);
@@ -36,7 +43,7 @@ public struct UBSAScheduleTable {
                         continue;
                     }
                 }
-                callback(UBSAScheduleTable(withSchedules: schedules));
+                callback(UBSASchedules(withSchedules: schedules));
             } else {
                 callback(nil);
                 return;
@@ -48,10 +55,17 @@ public struct UBSAScheduleTable {
         var name = "";
         var periods: [UBSAPeriod] = [];
         var prev: UBSAPeriod? = nil;
+        var hidden: Bool = false;
         for (periodKey, period) in scheduleDict {
             if(periodKey == "name") {
                 if let nameString = period as? String {
                     name = nameString;
+                }
+                continue;
+            }
+            if(periodKey == "hidden") {
+                if let hiddN = period as? Bool {
+                    hidden = hiddN;
                 }
                 continue;
             }
@@ -89,11 +103,65 @@ public struct UBSAScheduleTable {
             }
             
         }
-        return UBSASchedule(withPeriods: periods, name: name);
+        return UBSASchedule(withPeriods: periods, name: name, hidden: hidden);
     }
     
+    ///Make a path for a schedule
+    ///- Parameter c: Context
+    ///- Returns: A reference for the schedule
     public static func scheduleTablePath(_ c: UBSAContext) -> DatabaseReference {
         let path = "schedules";
         return c.database.child(path);
     }
+}
+
+
+/**
+ UBSA Schedule
+ */
+public struct UBSASchedule {
+    
+    ///Periods in the schedule
+    public var periods: [UBSAPeriod];
+    
+    ///Name of the schedule
+    public var name: String;
+    
+    ///Display schedule in list?
+    public var hidden: Bool;
+    
+    /// Initializer
+    /// - Parameters:
+    ///     - periods: Periods of the schedule
+    ///     - name: Name of the schedule
+    ///     - hidden: Is the schedule hidden?
+    public init(withPeriods periods: [UBSAPeriod], name: String, hidden: Bool) {
+        self.periods = periods;
+        self.name = name;
+        self.hidden = hidden;
+    }
+    
+    ///Get a the current period
+    /// - Parameters:
+    ///     - fromDate: Date to get the period
+    /// - Returns: The current period or nil if there is none.
+    public func getPeriod(fromDate date: Date) -> UBSAPeriod? {
+        let calendar = Calendar(identifier: .gregorian);
+        let hrs: Int = calendar.component(.hour, from: date);
+        let mins: Int = calendar.component(.minute, from: date);
+        for period in periods {
+            let startComponents = period.startTimeComponents;
+            let endComponents = period.endTimeComponents;
+            let isGreaterThanStart = hrs > startComponents.0 || (hrs == startComponents.0 && mins >= startComponents.1);
+            
+            let isSmallerThanEnd = hrs < endComponents.0 || (hrs == endComponents.0 && mins < endComponents.1);
+            
+            if(isGreaterThanStart && isSmallerThanEnd) {
+                return period;
+            }
+        }
+        return nil;
+    }
+    
+    
 }

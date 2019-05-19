@@ -23,10 +23,14 @@ public struct UBSAConfig {
     ///School identifier for the database
     public var schoolIdentifier: String;
     
+    ///Name for the app
+    public var appName: String;
+    
     ///Basic initialiser
-    public init(withName schoolName: String, schoolColour: UIColor, schoolIdentifier: String) {
+    public init(withName schoolName: String, appName: String, schoolColour: UIColor, schoolIdentifier: String) {
         self.schoolName = schoolName;
         self.schoolColour = schoolColour;
+        self.appName = appName;
         self.schoolIdentifier = schoolIdentifier;
     }
 }

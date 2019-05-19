@@ -1,5 +1,5 @@
 //
-//  UBSAMainScreenViewController.swift
+//  MainScreenViewController.swift
 //  UBSA
 //
 //  Created by Ari Stassinopoulos on 5/8/19.
@@ -12,14 +12,15 @@ import UBSAKit;
 /**
  Main screen of the app: the classic Bell Schedule view
  */
-class UBSAMainScreenViewController: UIViewController {
+class MainScreenViewController: UIViewController {
     
-    @IBOutlet var endTimeLabel: UBSAMainScreenLabel!;
-    @IBOutlet var startTimeLabel: UBSAMainScreenLabel!;
+    @IBOutlet var endTimeLabel: MainScreenLabel!;
+    @IBOutlet var startTimeLabel: MainScreenLabel!;
     @IBOutlet var activityIndicator: UIActivityIndicatorView!;
     @IBOutlet var countdownLabel: UILabel!
     
     var currentSchedule: UBSASchedule?;
+    var currentCalendar: UBSACalendar?;
     var currentSymbols: UBSASymbols?;
     var periodTimer: Timer?;
     
@@ -40,18 +41,18 @@ class UBSAMainScreenViewController: UIViewController {
     ///ViewDidLoad overrider, sets navigation controller colour
     override public func viewDidLoad() {
         super.viewDidLoad();
-        self.view.backgroundColor = UBSAAppConfig.sharedContext.colour;
+        self.view.backgroundColor = AppConfig.C.colour;
         
         self.hideTextFields();
         self.showActivityIndicator();
         
         if let navigationController = self.navigationController { // Check if navi controller exists
-            if let ubsaNavigationController = navigationController as? UBSANavigationController{ // Make sure navi controller is a custom one
+            if let ubsaNavigationController = navigationController as? StyledNavigationController{ // Make sure navi controller is a custom one
                 ubsaNavigationController.setHasBackground(false, completion: nil); // Disappear background of navi controller.
             }
         }
         
-        loadTodaySchedule(UBSAAppConfig.sharedContext);
+        loadTodaySchedule(AppConfig.C);
         
         startTimer();
         
@@ -66,7 +67,7 @@ class UBSAMainScreenViewController: UIViewController {
         print("After start timer, before try navi set")
         
         if let navigationController = self.navigationController { // Check if navi controller exists
-            if let ubsaNavigationController = navigationController as? UBSANavigationController{ // Make sure navi controller is a custom one
+            if let ubsaNavigationController = navigationController as? StyledNavigationController{ // Make sure navi controller is a custom one
                 ubsaNavigationController.setHasBackground(false, completion: nil); // Disappear background of navi controller.
             }
         }
@@ -84,7 +85,7 @@ class UBSAMainScreenViewController: UIViewController {
     }
     
     func showActivityIndicator() {
-        activityIndicator.style = UBSAAppConfig.sharedContext.textColour == .white ? .white : .gray;
+        activityIndicator.style = AppConfig.C.textColour == .white ? .white : .gray;
         activityIndicator.startAnimating();
     }
     
@@ -150,59 +151,73 @@ class UBSAMainScreenViewController: UIViewController {
     }
     
     func displayPeriod() {
-        if let schedule = currentSchedule {
-            if let currentPeriod = schedule.getPeriod(fromDate: Date()) {
-                let distanceFromEnd = currentPeriod.distanceFromEnd(date: Date().addingTimeInterval(2));
-                if(distanceFromEnd <= 60) {
-                    self.countdownLabel.text = "\(Int(distanceFromEnd) / 60):\(Int(distanceFromEnd) % 60 < 10 ? "0\(Int(distanceFromEnd) % 60)" : "\(Int(distanceFromEnd) % 60)")";
-                    self.fadeIn(self.countdownLabel, completion: nil);
-                } else {
-                    self.countdownLabel.text = "";
-                    self.fadeOut(self.countdownLabel, completion: nil);
-                }
+        if let schedule = currentSchedule, let currentPeriod = schedule.getPeriod(fromDate: Date()) {
+            let distanceFromEnd = currentPeriod.distanceFromEnd(date: Date().addingTimeInterval(2));
+            if(distanceFromEnd <= 60) {
+                self.countdownLabel.text = "\(Int(distanceFromEnd) / 60):\(Int(distanceFromEnd) % 60 < 10 ? "0\(Int(distanceFromEnd) % 60)" : "\(Int(distanceFromEnd) % 60)")";
+                self.fadeIn(self.countdownLabel, completion: nil);
+            } else {
+                self.countdownLabel.text = "";
+                self.fadeOut(self.countdownLabel, completion: nil);
             }
-            hideActivityIndicator { [weak self] in
-                if let this = self {
-                    let currentDate = Date();
-                    if let currentPeriod = schedule.getPeriod(fromDate: currentDate) {
-                        if let symbols = this.currentSymbols {
-
-                            this.startTimeLabel.text = currentPeriod.startTimeDisplay;
-                            this.endTimeLabel.text = currentPeriod.endTimeDisplay;
-                            this.navigationItem.title = symbols.render(templateString: currentPeriod.name);
-
-                        }
-                    } else {
-                        this.startTimeLabel.text = "";
-                        this.endTimeLabel.text = "No class";
-                        this.navigationItem.title = "";
+        }
+        hideActivityIndicator { [weak self] in
+            if let this = self {
+                let currentDate = Date();
+                if let schedule = this.currentSchedule, let currentPeriod = schedule.getPeriod(fromDate: currentDate) {
+                    if let symbols = this.currentSymbols {
+                        this.startTimeLabel.text = currentPeriod.startTimeDisplay;
+                        this.endTimeLabel.text = currentPeriod.endTimeDisplay;
+                        this.navigationItem.title = symbols.render(templateString: currentPeriod.name);
                     }
-                    this.fadeIn(this.endTimeLabel, completion: nil);
-                    this.fadeIn(this.startTimeLabel, completion: nil);
-
+                } else {
+                    this.startTimeLabel.text = "";
+                    this.endTimeLabel.text = "No class";
+                    this.navigationItem.title = "";
                 }
+                this.fadeIn(this.endTimeLabel, completion: nil);
+                this.fadeIn(this.startTimeLabel, completion: nil);
+            }
+        }
+    }
+    
+    func displayError() {
+        hideActivityIndicator { [weak self] in
+            if let this = self {
+                this.startTimeLabel.text = "";
+                this.endTimeLabel.text = "Error";
+                this.navigationItem.title = "";
+                
+                this.fadeIn(this.endTimeLabel, completion: nil);
+                this.fadeIn(this.startTimeLabel, completion: nil);
             }
         }
     }
     
     func loadTodaySchedule(_ c: UBSAContext) {
         let calendarRef = UBSACalendar.calendarPath(c, fromDate: Date());
-        UBSASymbols.makeSymbols(fromReference: UBSASymbols.symbolPath(c)) { (symbolsO) in
+        UBSASymbols.makeSymbols(c, fromReference: UBSASymbols.symbolPath(c)) { (symbolsO) in
             if let symbols = symbolsO {
                 self.currentSymbols = symbols;
-                UBSAScheduleTable.makeScheduleTable(c, withReference: UBSAScheduleTable.scheduleTablePath(c)) { (scheduleTable_) in
+                UBSASchedules.makeScheduleTable(c, withReference: UBSASchedules.scheduleTablePath(c)) { (scheduleTable_) in
                     if let scheduleTable = scheduleTable_ {
                         UBSACalendar.makeCalendar(withReference: calendarRef, scheduleTable: scheduleTable) { (calendar_) in
                             if let calendar = calendar_ {
+                                self.currentCalendar = calendar;
                                 if let todaySchedule = calendar.getSchedule(forDay: UBSACalendar.day(fromDate: Date())) {
                                     self.currentSchedule = todaySchedule;
                                     self.displayPeriod();
+                                } else {
+                                    self.currentSchedule = nil;
+                                    self.displayPeriod();
                                 }
                             } else {
+                                self.displayError();
                                 return;
                             }
                         };
                     } else {
+                        self.displayError();
                         return;
                     }
                 }
@@ -218,13 +233,29 @@ class UBSAMainScreenViewController: UIViewController {
             periodTimer!.invalidate();
             periodTimer = nil;
         }
-        self.navigationItem.title = "Home";
+        //self.navigationItem.title = "Home";
+        
+        if let destination = segue.destination as? ScheduleTableViewController {
+            destination.currentCalendar = currentCalendar;
+            destination.currentSchedule = currentSchedule;
+            destination.currentSymbols = currentSymbols;
+        } else if let destination = segue.destination as? SettingsViewController {
+            destination.currentSymbols = currentSymbols;
+        }
     }
     
-    @IBAction func onScheduleButtonpressed(_ sender: UIBarButtonItem) {
-        if let navigationBar = self.navigationController as? UBSANavigationController {
+    @IBAction func onScheduleButtonPressed(_ sender: UIBarButtonItem) {
+        if let navigationBar = self.navigationController as? StyledNavigationController {
             navigationBar.setHasBackground(true) {
-            self.performSegue(withIdentifier: "homeScreenToScheduleSegue", sender: nil);
+                self.performSegue(withIdentifier: "homeScreenToScheduleSegue", sender: self);
+            }
+        }
+    }
+    
+    @IBAction func onSettingsButtonPressed(_ sender: UIBarButtonItem) {
+        if let navigationBar = self.navigationController as? StyledNavigationController {
+            navigationBar.setHasBackground(true) {
+                self.performSegue(withIdentifier: "homeScreenToSettingsSegue", sender: self);
             }
         }
     }

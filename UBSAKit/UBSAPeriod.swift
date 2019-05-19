@@ -8,16 +8,34 @@
 
 import Foundation
 
-public class UBSAPeriod {
+/**
+ UBSA Period
+ */
+public class UBSAPeriod: Equatable {
     
+    /// Equals (for equatable)
+    ///
+    /// - Parameters:
+    ///     - lhs: The left side of ==
+    ///     - rhs: The right sie of ===
+    /// - Returns: Whether the periods are equivalent
+    public static func == (lhs: UBSAPeriod, rhs: UBSAPeriod) -> Bool {
+        return lhs.startTimeComponents == rhs.startTimeComponents && lhs.endTimeComponents == rhs.endTimeComponents && lhs.name == rhs.name;
+    }
+    
+    /// Name of the schedule
     public var name: String;
     
+    /// Context
     public var context: UBSAContext;
     
+    ///Start of the period "00:00" 24-hour time
     public var startTime: String;
-    public var endTime: String;
-    public var isPassingPeriod: Bool = false;
     
+    ///End of the period "00:00" 24-hour time
+    public var endTime: String;
+    
+    ///Components of the start time (split at :)
     public var startTimeComponents: (Int, Int) {
         get {
             let sp = startTime.split(separator: ":");
@@ -29,6 +47,7 @@ public class UBSAPeriod {
             }        }
     }
     
+    ///Components of the end time (split at :)
     public var endTimeComponents: (Int, Int) {
         get {
             let sp = endTime.split(separator: ":");
@@ -41,25 +60,32 @@ public class UBSAPeriod {
         }
     };
     
+    ///Rendered start time with user time style
     public var startTimeDisplay: String {
-        if(using12hClockFormat()) {
-            let (hh, mm) = startTimeComponents;
-            return "\((hh % 12 == 0 ? 12 : hh % 12)):\(mm < 10 ? "0\(mm)" : "\(mm)") \(hh >= 12 ? "PM" : "AM")";
-        } else {
-            return startTime;
-        }
+        return renderComponents(startTimeComponents)
     }
     
+    ///Rendered end time with user time style
     public var endTimeDisplay: String {
+        return renderComponents(endTimeComponents);
+    }
+    
+    private func renderComponents(_ components: (Int, Int)) -> String{
+        let (hh, mm) = components;
         if(using12hClockFormat()) {
-            let (hh, mm) = endTimeComponents;
-            return "\(hh % 12):\(mm < 10 ? "0\(mm)" : "\(mm)") \(hh >= 12 ? "PM" : "AM")";
+            return "\(hh % 12 == 0 ? 12 : hh % 12):\(mm < 10 ? "0\(mm)" : "\(mm)") \(hh >= 12 ? "PM" : "AM")";
         } else {
-            return endTime;
+            return "\(hh < 10 ? "0\(hh)" : "\(hh)"):\(mm < 10 ? "0\(mm)" : "\(mm)")";
         }
     }
     
-    init(_ c: UBSAContext, withStartTime startTime: String, withEndTime endTime: String, withName name: String) {
+    ///Default initializer
+    /// - Parameters:
+    ///     - c: Context
+    ///     - withStartTime: Period start time
+    ///     - withEndTime: Period end time
+    ///     - withName: Name of the period
+    public init(_ c: UBSAContext, withStartTime startTime: String, withEndTime endTime: String, withName name: String) {
         self.startTime = startTime;
         self.endTime = endTime;
         self.name = name;
@@ -67,6 +93,12 @@ public class UBSAPeriod {
         self.context = c;
     }
     
+    ///Start-len initializer
+    /// - Parameters:
+    ///     - c: Context
+    ///     - withStartTime: Period start time
+    ///     - withLength: Length of the period
+    ///     - withName: Name of the period
     init(_ c: UBSAContext, withStartTime startTime: String, withLength len: Int, withName name: String) {
         self.startTime = startTime;
         self.endTime = "";
@@ -75,6 +107,12 @@ public class UBSAPeriod {
         endTime = add(minutes: len, toTime: startTime);
     }
     
+    ///Previous-len initializer
+    /// - Parameters:
+    ///     - c: Context
+    ///     - afterPrevious: Previous period
+    ///     - withLength: Length of the period
+    ///     - withName: Name of the period
     init(_ c: UBSAContext, afterPrevious prev: UBSAPeriod, withLength len: Int, withName name: String) {
         startTime = prev.endTime;
         endTime = "";
@@ -83,6 +121,12 @@ public class UBSAPeriod {
         endTime = add(minutes: len, toTime: startTime);
     }
     
+    ///Previous-end initializer
+    /// - Parameters:
+    ///     - c: Context
+    ///     - afterPrevious: Previous period
+    ///     - withEndTime: Period end time
+    ///     - withName: Name of the period
     init(_ c: UBSAContext, afterPrevious prev: UBSAPeriod, withEndTime endTime: String, withName name: String) {
         startTime = prev.endTime;
         self.endTime = endTime;
@@ -115,20 +159,16 @@ public class UBSAPeriod {
     }
     
     private func using12hClockFormat() -> Bool {
-        
-        let formatter = DateFormatter()
-        formatter.locale = Locale.current
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        
-        let dateString = formatter.string(from: Date())
-        let amRange = dateString.range(of: formatter.amSymbol)
-        let pmRange = dateString.range(of: formatter.pmSymbol)
-        
-        return !(pmRange == nil && amRange == nil)
-        
+        let locale = NSLocale.current;
+        let formatter : String = DateFormatter.dateFormat(fromTemplate: "j", options:0, locale:locale)!;
+        return formatter.contains("a");
     }
     
+    /// Distance from the end of the period
+    ///
+    /// - Parameters:
+    ///     - date: Date for the calculation
+    /// - Returns: A timeInterval with how long is left in the period
     public func distanceFromEnd(date: Date) -> TimeInterval {
         let calendar = Calendar(identifier: .gregorian);
         let hh = calendar.component(.hour, from: date);
@@ -138,4 +178,6 @@ public class UBSAPeriod {
         let mLeft = 60 * (eHH - hh) + (eMM - mm);
         return TimeInterval(60 * (mLeft) - ss);
     }
+    
+    
 }

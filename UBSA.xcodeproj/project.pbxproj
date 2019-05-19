@@ -11,11 +11,15 @@
 		88074EFA2284A0A400379F3C /* UBSAPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88074EF92284A0A400379F3C /* UBSAPeriod.swift */; };
 		8840A02B22850E1000A90403 /* UBSASymbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8840A02A22850E1000A90403 /* UBSASymbols.swift */; };
 		8840A02C228528BC00A90403 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 888512E62283BEC00074A399 /* GoogleService-Info.plist */; };
-		88543464228C9684006E7377 /* UBSAScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88543463228C9684006E7377 /* UBSAScheduleTableViewController.swift */; };
+		8844EAE02290C5B000C24566 /* SymbolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844EADF2290C5B000C24566 /* SymbolCell.swift */; };
+		8844EAE22290CAA900C24566 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844EAE12290CAA900C24566 /* SettingsViewController.swift */; };
+		8844EAE42290CB6200C24566 /* ClassNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8844EAE32290CB6200C24566 /* ClassNameTableViewController.swift */; };
+		88543464228C9684006E7377 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88543463228C9684006E7377 /* ScheduleTableViewController.swift */; };
+		885EBD652290E01100288189 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885EBD642290E01100288189 /* AboutViewController.swift */; };
+		88677372228D98C000D15B9B /* ScheduleClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88677371228D98C000D15B9B /* ScheduleClassCell.swift */; };
 		888512E72283BEC00074A399 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 888512E62283BEC00074A399 /* GoogleService-Info.plist */; };
 		88B79CE022847DEE00DFDD3C /* UBSACalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B79CDF22847DEE00DFDD3C /* UBSACalendar.swift */; };
-		88B79CE2228480B400DFDD3C /* UBSAScheduleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B79CE1228480B400DFDD3C /* UBSAScheduleTable.swift */; };
-		88B79CE4228483B700DFDD3C /* UBSASchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B79CE3228483B700DFDD3C /* UBSASchedule.swift */; };
+		88B79CE4228483B700DFDD3C /* UBSASchedules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B79CE3228483B700DFDD3C /* UBSASchedules.swift */; };
 		88E78D2C2283369500627041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D2B2283369500627041 /* AppDelegate.swift */; };
 		88E78D312283369500627041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E78D2F2283369500627041 /* Main.storyboard */; };
 		88E78D332283369700627041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88E78D322283369700627041 /* Assets.xcassets */; };
@@ -26,10 +30,11 @@
 		88E78D53228338F400627041 /* UBSAColour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D52228338F400627041 /* UBSAColour.swift */; };
 		88E78D55228339F100627041 /* UBSAContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D54228339F100627041 /* UBSAContext.swift */; };
 		88E78D5722833A3E00627041 /* UBSAConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5622833A3E00627041 /* UBSAConfig.swift */; };
-		88E78D5922833CCE00627041 /* UBSAAppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5822833CCE00627041 /* UBSAAppConfig.swift */; };
-		88E78D5D228342B200627041 /* UBSAMainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5C228342B200627041 /* UBSAMainScreenViewController.swift */; };
-		88E78D5F2283434A00627041 /* UBSANavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5E2283434A00627041 /* UBSANavigationController.swift */; };
-		88F5F69122835A0F00064D93 /* UBSAMainScreenLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5F69022835A0F00064D93 /* UBSAMainScreenLabel.swift */; };
+		88E78D5922833CCE00627041 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5822833CCE00627041 /* AppConfig.swift */; };
+		88E78D5D228342B200627041 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5C228342B200627041 /* MainScreenViewController.swift */; };
+		88E78D5F2283434A00627041 /* StyledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E78D5E2283434A00627041 /* StyledNavigationController.swift */; };
+		88F5F69122835A0F00064D93 /* MainScreenLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F5F69022835A0F00064D93 /* MainScreenLabel.swift */; };
+		88F7CAC6228DF0DB000E730D /* AllSchedulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F7CAC5228DF0DB000E730D /* AllSchedulesTableViewController.swift */; };
 		F46271489F8874CC43F16833 /* Pods_UBSAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905036C2906771221794E08F /* Pods_UBSAKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,11 +69,15 @@
 		81B33F654C0FDCB230E8AE31 /* Pods-UBSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBSA.release.xcconfig"; path = "Pods/Target Support Files/Pods-UBSA/Pods-UBSA.release.xcconfig"; sourceTree = "<group>"; };
 		88074EF92284A0A400379F3C /* UBSAPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAPeriod.swift; sourceTree = "<group>"; };
 		8840A02A22850E1000A90403 /* UBSASymbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSASymbols.swift; sourceTree = "<group>"; };
-		88543463228C9684006E7377 /* UBSAScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAScheduleTableViewController.swift; sourceTree = "<group>"; };
+		8844EADF2290C5B000C24566 /* SymbolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolCell.swift; sourceTree = "<group>"; };
+		8844EAE12290CAA900C24566 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8844EAE32290CB6200C24566 /* ClassNameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassNameTableViewController.swift; sourceTree = "<group>"; };
+		88543463228C9684006E7377 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		885EBD642290E01100288189 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		88677371228D98C000D15B9B /* ScheduleClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleClassCell.swift; sourceTree = "<group>"; };
 		888512E62283BEC00074A399 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		88B79CDF22847DEE00DFDD3C /* UBSACalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSACalendar.swift; sourceTree = "<group>"; };
-		88B79CE1228480B400DFDD3C /* UBSAScheduleTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAScheduleTable.swift; sourceTree = "<group>"; };
-		88B79CE3228483B700DFDD3C /* UBSASchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSASchedule.swift; sourceTree = "<group>"; };
+		88B79CE3228483B700DFDD3C /* UBSASchedules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSASchedules.swift; sourceTree = "<group>"; };
 		88E78D282283369500627041 /* UBSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UBSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E78D2B2283369500627041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88E78D302283369500627041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,10 +90,11 @@
 		88E78D52228338F400627041 /* UBSAColour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAColour.swift; sourceTree = "<group>"; };
 		88E78D54228339F100627041 /* UBSAContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAContext.swift; sourceTree = "<group>"; };
 		88E78D5622833A3E00627041 /* UBSAConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAConfig.swift; sourceTree = "<group>"; };
-		88E78D5822833CCE00627041 /* UBSAAppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAAppConfig.swift; sourceTree = "<group>"; };
-		88E78D5C228342B200627041 /* UBSAMainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAMainScreenViewController.swift; sourceTree = "<group>"; };
-		88E78D5E2283434A00627041 /* UBSANavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSANavigationController.swift; sourceTree = "<group>"; };
-		88F5F69022835A0F00064D93 /* UBSAMainScreenLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBSAMainScreenLabel.swift; sourceTree = "<group>"; };
+		88E78D5822833CCE00627041 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		88E78D5C228342B200627041 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		88E78D5E2283434A00627041 /* StyledNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledNavigationController.swift; sourceTree = "<group>"; };
+		88F5F69022835A0F00064D93 /* MainScreenLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenLabel.swift; sourceTree = "<group>"; };
+		88F7CAC5228DF0DB000E730D /* AllSchedulesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSchedulesTableViewController.swift; sourceTree = "<group>"; };
 		905036C2906771221794E08F /* Pods_UBSAKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UBSAKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5176CBF38B0A08929C723D /* Pods-UBSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UBSA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UBSA/Pods-UBSA.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +129,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		88677370228D989C00D15B9B /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				88677371228D98C000D15B9B /* ScheduleClassCell.swift */,
+				8844EADF2290C5B000C24566 /* SymbolCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
 		88E78D1F2283369500627041 = {
 			isa = PBXGroup;
 			children = (
@@ -149,7 +168,7 @@
 				88E78D322283369700627041 /* Assets.xcassets */,
 				88E78D342283369700627041 /* LaunchScreen.storyboard */,
 				88E78D372283369700627041 /* Info.plist */,
-				88E78D5822833CCE00627041 /* UBSAAppConfig.swift */,
+				88E78D5822833CCE00627041 /* AppConfig.swift */,
 			);
 			path = UBSA;
 			sourceTree = "<group>";
@@ -164,8 +183,7 @@
 				8840A02A22850E1000A90403 /* UBSASymbols.swift */,
 				88E78D5622833A3E00627041 /* UBSAConfig.swift */,
 				88B79CDF22847DEE00DFDD3C /* UBSACalendar.swift */,
-				88B79CE3228483B700DFDD3C /* UBSASchedule.swift */,
-				88B79CE1228480B400DFDD3C /* UBSAScheduleTable.swift */,
+				88B79CE3228483B700DFDD3C /* UBSASchedules.swift */,
 				88074EF92284A0A400379F3C /* UBSAPeriod.swift */,
 			);
 			path = UBSAKit;
@@ -174,10 +192,15 @@
 		88E78D4F2283386B00627041 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				88E78D5C228342B200627041 /* UBSAMainScreenViewController.swift */,
-				88E78D5E2283434A00627041 /* UBSANavigationController.swift */,
-				88F5F69022835A0F00064D93 /* UBSAMainScreenLabel.swift */,
-				88543463228C9684006E7377 /* UBSAScheduleTableViewController.swift */,
+				88677370228D989C00D15B9B /* TableCells */,
+				88E78D5C228342B200627041 /* MainScreenViewController.swift */,
+				88E78D5E2283434A00627041 /* StyledNavigationController.swift */,
+				88F5F69022835A0F00064D93 /* MainScreenLabel.swift */,
+				88F7CAC5228DF0DB000E730D /* AllSchedulesTableViewController.swift */,
+				88543463228C9684006E7377 /* ScheduleTableViewController.swift */,
+				8844EAE12290CAA900C24566 /* SettingsViewController.swift */,
+				8844EAE32290CB6200C24566 /* ClassNameTableViewController.swift */,
+				885EBD642290E01100288189 /* AboutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -387,12 +410,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88E78D5F2283434A00627041 /* UBSANavigationController.swift in Sources */,
-				88543464228C9684006E7377 /* UBSAScheduleTableViewController.swift in Sources */,
-				88F5F69122835A0F00064D93 /* UBSAMainScreenLabel.swift in Sources */,
-				88E78D5D228342B200627041 /* UBSAMainScreenViewController.swift in Sources */,
+				88E78D5F2283434A00627041 /* StyledNavigationController.swift in Sources */,
+				88543464228C9684006E7377 /* ScheduleTableViewController.swift in Sources */,
+				8844EAE42290CB6200C24566 /* ClassNameTableViewController.swift in Sources */,
+				88F5F69122835A0F00064D93 /* MainScreenLabel.swift in Sources */,
+				8844EAE22290CAA900C24566 /* SettingsViewController.swift in Sources */,
+				885EBD652290E01100288189 /* AboutViewController.swift in Sources */,
+				8844EAE02290C5B000C24566 /* SymbolCell.swift in Sources */,
+				88E78D5D228342B200627041 /* MainScreenViewController.swift in Sources */,
 				88E78D2C2283369500627041 /* AppDelegate.swift in Sources */,
-				88E78D5922833CCE00627041 /* UBSAAppConfig.swift in Sources */,
+				88E78D5922833CCE00627041 /* AppConfig.swift in Sources */,
+				88677372228D98C000D15B9B /* ScheduleClassCell.swift in Sources */,
+				88F7CAC6228DF0DB000E730D /* AllSchedulesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,9 +434,8 @@
 				88E78D53228338F400627041 /* UBSAColour.swift in Sources */,
 				88074EFA2284A0A400379F3C /* UBSAPeriod.swift in Sources */,
 				88B79CE022847DEE00DFDD3C /* UBSACalendar.swift in Sources */,
-				88B79CE2228480B400DFDD3C /* UBSAScheduleTable.swift in Sources */,
 				88E78D5722833A3E00627041 /* UBSAConfig.swift in Sources */,
-				88B79CE4228483B700DFDD3C /* UBSASchedule.swift in Sources */,
+				88B79CE4228483B700DFDD3C /* UBSASchedules.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

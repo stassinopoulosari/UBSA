@@ -12,15 +12,16 @@ import UBSAKit
 /**
  Configuration on app-level for UI and name
  */
-struct UBSAAppConfig {
+struct AppConfig {
     
     ///UBSA config: Allows configuration of app-level data
     public static var ubsaConfig: UBSAConfig {
         get {
             let SCHOOL_NAME: String = "Dublin High School";
+            let APP_NAME: String = "DHS Bell Schedule App";
             let SCHOOL_COLOUR: UIColor = UIColor(hue: 64.0/360.0, saturation: 1.0, brightness: 1.0,  alpha: 1.0);
             let SCHOOL_IDENTIFIER: String = "dublinHS";
-            return UBSAConfig(withName: SCHOOL_NAME, schoolColour:SCHOOL_COLOUR, schoolIdentifier: SCHOOL_IDENTIFIER);
+            return UBSAConfig(withName: SCHOOL_NAME, appName: APP_NAME, schoolColour:SCHOOL_COLOUR, schoolIdentifier: SCHOOL_IDENTIFIER);
         }
     };
     
@@ -28,16 +29,7 @@ struct UBSAAppConfig {
     private init() {
     }
     
-    ///UBSA context
-    public static var ubsaContext: UBSAContext?;
+    public static let C: UBSAContext = UBSAContext(withConfig: ubsaConfig);
     
-    public static let sharedContext: UBSAContext = UBSAContext(withConfig: ubsaConfig);
-    
-    ///UBSA context
-    public static var c: UBSAContext? {
-        get {
-            return ubsaContext;
-        }
-    }
     
 }

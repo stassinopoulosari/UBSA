@@ -88,11 +88,7 @@ extension UIColor {
 }
 
 /**
- # UBSAColour
- 
- Ari Stassinopoulos
- 
- Colour conversion utilities
+ UBSA Colour conversion utilities
  */
 public class UBSAColour {
     

@@ -22,45 +22,38 @@ public class UBSAContext {
     
     ///Stores the identifier from the config
     public var identifier: String {
-        get {
-            return config.schoolIdentifier;
-        }
+        return config.schoolIdentifier;
     }
     
     ///Allows access to the colour from the config
     public var colour: UIColor {
-        get {
-            return config.schoolColour;
-        }
+        return config.schoolColour;
     }
     
     ///Allows access to the text colour from the config
     public var textColour: UIColor {
-        get {
-            return UBSAColour.getTextColour(forColour: config.schoolColour);
-        }
+        return UBSAColour.getTextColour(forColour: config.schoolColour);
     }
     
     ///Allows access to the name from the config
     public var name: String {
-        get {
-            return config.schoolName;
-        }
+        return config.schoolName;
     }
     
     ///Database reference given the school identifier from the config
     public var database: DatabaseReference {
-        get {
-            if FirebaseApp.app() == nil {
-                FirebaseApp.configure();
-            }
-            return Database.database().reference().child("schools").child(config.schoolIdentifier);
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure();
         }
+        return Database.database().reference().child("schools").child(config.schoolIdentifier);
     }
     
-    //public var symbols: [UBSASymbol];
+    ///UserDefaults instance
+    public var defaults: UserDefaults? {
+        return UserDefaults.init(suiteName: identifier);
+    }
     
-    
+    ///Initialiser for UBSAContext, use with config object in main target
     public init(withConfig config: UBSAConfig) {
         self.config = config;
     }

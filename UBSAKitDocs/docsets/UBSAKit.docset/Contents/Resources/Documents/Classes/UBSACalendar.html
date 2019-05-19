@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           UBSAKit Docs
         </a>
-         (55% documented)
+         (100% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -94,7 +94,7 @@
                 <a class="nav-group-task-link" href="../Structs/UBSASchedule.html">UBSASchedule</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/UBSAScheduleTable.html">UBSAScheduleTable</a>
+                <a class="nav-group-task-link" href="../Structs/UBSASchedules.html">UBSASchedules</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/UBSASymbol.html">UBSASymbol</a>
@@ -140,7 +140,7 @@
                       <div class="abstract">
                         <p>Schedules</p>
 
-<p>index is day of the month - 1</p>
+<p>index is day of the month</p>
 
                       </div>
                       <div class="declaration">
@@ -157,9 +157,36 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7UBSAKit12UBSACalendarC12makeCalendar13withReference13scheduleTable10completionySo011FIRDatabaseF0C_AA012UBSAScheduleH0VyACSgctFZ"></a>
+                    <a name="/s:7UBSAKit12UBSACalendarC13scheduleTableAA13UBSASchedulesVvp"></a>
+                    <a name="//apple_ref/swift/Property/scheduleTable" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7UBSAKit12UBSACalendarC13scheduleTableAA13UBSASchedulesVvp">scheduleTable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Available schedules</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">scheduleTable</span><span class="p">:</span> <span class="kt"><a href="../Structs/UBSASchedules.html">UBSASchedules</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7UBSAKit12UBSACalendarC12makeCalendar13withReference13scheduleTable10completionySo011FIRDatabaseF0C_AA13UBSASchedulesVyACSgctFZ"></a>
                     <a name="//apple_ref/swift/Method/makeCalendar(withReference:scheduleTable:completion:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7UBSAKit12UBSACalendarC12makeCalendar13withReference13scheduleTable10completionySo011FIRDatabaseF0C_AA012UBSAScheduleH0VyACSgctFZ">makeCalendar(withReference:scheduleTable:completion:)</a>
+                    <a class="token" href="#/s:7UBSAKit12UBSACalendarC12makeCalendar13withReference13scheduleTable10completionySo011FIRDatabaseF0C_AA13UBSASchedulesVyACSgctFZ">makeCalendar(withReference:scheduleTable:completion:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -174,7 +201,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">makeCalendar</span><span class="p">(</span><span class="n">withReference</span> <span class="nv">reference</span><span class="p">:</span> <span class="kt">DatabaseReference</span><span class="p">,</span> <span class="nv">scheduleTable</span><span class="p">:</span> <span class="kt"><a href="../Structs/UBSAScheduleTable.html">UBSAScheduleTable</a></span><span class="p">,</span> <span class="n">completion</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UBSACalendar</span><span class="p">?)</span><span class="o">-&gt;</span><span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">makeCalendar</span><span class="p">(</span><span class="n">withReference</span> <span class="nv">reference</span><span class="p">:</span> <span class="kt">DatabaseReference</span><span class="p">,</span> <span class="nv">scheduleTable</span><span class="p">:</span> <span class="kt"><a href="../Structs/UBSASchedules.html">UBSASchedules</a></span><span class="p">,</span> <span class="n">completion</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UBSACalendar</span><span class="p">?)</span><span class="o">-&gt;</span><span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -237,7 +264,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Calendar path from a context and a date</p>
 
                       </div>
                       <div class="declaration">
@@ -247,6 +274,41 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">calendarPath</span><span class="p">(</span><span class="n">_</span> <span class="nv">c</span><span class="p">:</span> <span class="kt"><a href="../Classes/UBSAContext.html">UBSAContext</a></span><span class="p">,</span> <span class="n">fromDate</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DatabaseReference</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>c</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Context</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The date for which to generate a path</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A DatabaseReference for the calendar</p>
                       </div>
                     </section>
                   </div>
@@ -264,7 +326,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Date of the month</p>
 
                       </div>
                       <div class="declaration">
@@ -274,6 +336,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">day</span><span class="p">(</span><span class="n">fromDate</span> <span class="nv">date</span><span class="p">:</span> <span class="kt">Date</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromDate</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Date to generate day of month</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Date of the month</p>
                       </div>
                     </section>
                   </div>
@@ -291,7 +376,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Get the schedule for a day</p>
 
                       </div>
                       <div class="declaration">
@@ -301,6 +386,29 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getSchedule</span><span class="p">(</span><span class="n">forDay</span> <span class="nv">day</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/UBSASchedule.html">UBSASchedule</a></span><span class="p">?</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forDay</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The index in the array</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Schedule if one is found</p>
                       </div>
                     </section>
                   </div>
@@ -313,7 +421,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://ari-s.com/" target="_blank" rel="external">Ari Stassinopoulos</a>. All rights reserved. (Last updated: 2019-05-15)</p>
+      <p>&copy; 2019 <a class="link" href="https://ari-s.com/" target="_blank" rel="external">Ari Stassinopoulos</a>. All rights reserved. (Last updated: 2019-05-18)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
